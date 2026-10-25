@@ -1,0 +1,82 @@
+{
+  "id": "E08",
+  "name": "Risk decisions and email incident handling",
+  "family": "Email delivery and warming",
+  "subfamily": "Email delivery and warming",
+  "trigger": "Complaint, bounce, auth or transport risk",
+  "steps": [
+    {
+      "action": "Evaluate approved risk policy and affected sender scope",
+      "software": "Activepieces / PostgreSQL"
+    },
+    {
+      "action": "Apply transport-level marketing HOLD",
+      "software": "E11 / systemd"
+    },
+    {
+      "action": "Preserve receipts and protect lawful transactional separation",
+      "software": "Native transport policy"
+    },
+    {
+      "action": "Assign investigation and corrective changes",
+      "software": "OpenProject"
+    },
+    {
+      "action": "Require evidence before a recovery canary",
+      "software": "Human approval"
+    }
+  ],
+  "gate": "Incident cause and containment understood?",
+  "output": "Scoped email incident and auditable hold",
+  "acceptance_tests": [
+    "No control bypass from manual sends",
+    "Ops alerts not suppressed with marketing"
+  ],
+  "upstream": [
+    "E06",
+    "E07",
+    "X09",
+    "E05"
+  ],
+  "handoffs": [
+    "E09",
+    "X07"
+  ],
+  "source": "Sources/Library/Email_Warming_Workflows_v5_2026-10-25.md",
+  "conditional": false,
+  "notes": "",
+  "failure": "Set the affected marketing sender/campaign to HOLD; retain unknown acceptances and quota reservations pending reconciliation. Update authoritative suppression before releasing further sends.",
+  "status": "DESIGN_SPECIFIED_NOT_DEPLOYED",
+  "baseline": "V7",
+  "consolidation_revision": 1,
+  "controls": [
+    "X02",
+    "X03",
+    "X04",
+    "X06",
+    "X09"
+  ],
+  "runtime_dependencies": [
+    "I14",
+    "I15",
+    "I16",
+    "I17",
+    "I36"
+  ],
+  "software": [
+    "Activepieces / PostgreSQL",
+    "E11 / systemd",
+    "Human approval",
+    "Native transport policy",
+    "OpenProject"
+  ],
+  "source_class": "retained-and-expanded-email-pattern",
+  "run_contract": {
+    "owner": "Assigned accountable role in OpenProject before activation",
+    "idempotency": "client_id + source_system + source_event_id + action_scope + approved_revision",
+    "retry": "Bounded retry only after retryability classification; unknown remote effects HOLD",
+    "observability": "workflow_id, run_id, correlation_id, state and redacted error; no raw PII labels",
+    "recovery": "Restore HOLD; reapply suppression/deletion and reconcile external receipts before replay",
+    "completion": "Named output plus acceptance evidence, not merely a running service"
+  }
+}
