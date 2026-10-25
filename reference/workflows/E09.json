@@ -1,0 +1,81 @@
+{
+  "id": "E09",
+  "name": "Sender recovery and production requalification",
+  "family": "Email delivery and warming",
+  "subfamily": "Email delivery and warming",
+  "trigger": "Incident remediation or restored environment",
+  "steps": [
+    {
+      "action": "Restore sender, keys and ledgers with marketing held",
+      "software": "I24 / E11"
+    },
+    {
+      "action": "Reapply later suppressions and provider state",
+      "software": "Mautic / X06"
+    },
+    {
+      "action": "Fix identity, audience, content or transport cause",
+      "software": "Native owner"
+    },
+    {
+      "action": "Repeat owned-mailbox tests and small canary",
+      "software": "E04 / E05"
+    },
+    {
+      "action": "Approve bounded production re-entry",
+      "software": "OpenProject"
+    }
+  ],
+  "gate": "Recovery evidence and policy approval passed?",
+  "output": "Qualified recovery, not automatic full-volume resume",
+  "acceptance_tests": [
+    "No replay of old send queue after restore",
+    "Unknown SMTP acceptances reconciled first"
+  ],
+  "upstream": [
+    "E08",
+    "I24",
+    "E05"
+  ],
+  "handoffs": [
+    "E05",
+    "E10"
+  ],
+  "source": "Sources/Library/Email_Warming_Workflows_v5_2026-10-25.md",
+  "conditional": false,
+  "notes": "",
+  "failure": "Set the affected marketing sender/campaign to HOLD; retain unknown acceptances and quota reservations pending reconciliation. Update authoritative suppression before releasing further sends.",
+  "status": "DESIGN_SPECIFIED_NOT_DEPLOYED",
+  "baseline": "V7",
+  "consolidation_revision": 1,
+  "controls": [
+    "X02",
+    "X03",
+    "X04",
+    "X06",
+    "X09"
+  ],
+  "runtime_dependencies": [
+    "I14",
+    "I15",
+    "I16",
+    "I17",
+    "I36"
+  ],
+  "software": [
+    "E04 / E05",
+    "I24 / E11",
+    "Mautic / X06",
+    "Native owner",
+    "OpenProject"
+  ],
+  "source_class": "retained-and-expanded-email-pattern",
+  "run_contract": {
+    "owner": "Assigned accountable role in OpenProject before activation",
+    "idempotency": "client_id + source_system + source_event_id + action_scope + approved_revision",
+    "retry": "Bounded retry only after retryability classification; unknown remote effects HOLD",
+    "observability": "workflow_id, run_id, correlation_id, state and redacted error; no raw PII labels",
+    "recovery": "Restore HOLD; reapply suppression/deletion and reconcile external receipts before replay",
+    "completion": "Named output plus acceptance evidence, not merely a running service"
+  }
+}

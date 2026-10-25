@@ -1,0 +1,89 @@
+{
+  "id": "E03",
+  "name": "Email content, landing pages and exact review",
+  "family": "Email delivery and warming",
+  "subfamily": "Email delivery and warming",
+  "trigger": "Approved campaign content brief",
+  "steps": [
+    {
+      "action": "Create grounded copy and lawful offer",
+      "software": "C25-C32 / llama.cpp"
+    },
+    {
+      "action": "Assemble rights-checked assets and target URLs",
+      "software": "ResourceSpace / WordPress"
+    },
+    {
+      "action": "Test copy, identity, links and preference paths",
+      "software": "Vale / Playwright"
+    },
+    {
+      "action": "Review recipient segment and exact revision",
+      "software": "OpenProject"
+    },
+    {
+      "action": "Stage within Mautic without external sending",
+      "software": "Mautic"
+    }
+  ],
+  "gate": "Content, offer and target segment approved?",
+  "output": "Approved email revision staged in Mautic",
+  "acceptance_tests": [
+    "AI cannot self-approve",
+    "Content update invalidates old approval"
+  ],
+  "upstream": [
+    "E02",
+    "X03",
+    "C25",
+    "C26",
+    "C27",
+    "C28",
+    "C29",
+    "C30",
+    "C31",
+    "C32",
+    "M13"
+  ],
+  "handoffs": [
+    "E04",
+    "E11"
+  ],
+  "source": "Sources/Library/Email_Warming_Workflows_v5_2026-10-25.md",
+  "conditional": false,
+  "notes": "",
+  "failure": "Set the affected marketing sender/campaign to HOLD; retain unknown acceptances and quota reservations pending reconciliation. Update authoritative suppression before releasing further sends.",
+  "status": "DESIGN_SPECIFIED_NOT_DEPLOYED",
+  "baseline": "V7",
+  "consolidation_revision": 1,
+  "controls": [
+    "X02",
+    "X03",
+    "X04",
+    "X06",
+    "X09"
+  ],
+  "runtime_dependencies": [
+    "I14",
+    "I15",
+    "I16",
+    "I17",
+    "I36"
+  ],
+  "software": [
+    "C25-C32 / llama.cpp",
+    "Mautic",
+    "OpenProject",
+    "ResourceSpace / WordPress",
+    "Vale / Playwright"
+  ],
+  "source_class": "retained-and-expanded-email-pattern",
+  "run_contract": {
+    "owner": "Assigned accountable role in OpenProject before activation",
+    "idempotency": "client_id + source_system + source_event_id + action_scope + approved_revision",
+    "retry": "Bounded retry only after retryability classification; unknown remote effects HOLD",
+    "observability": "workflow_id, run_id, correlation_id, state and redacted error; no raw PII labels",
+    "recovery": "Restore HOLD; reapply suppression/deletion and reconcile external receipts before replay",
+    "completion": "Named output plus acceptance evidence, not merely a running service"
+  }
+}

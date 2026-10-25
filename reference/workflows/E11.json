@@ -1,0 +1,93 @@
+{
+  "id": "E11",
+  "name": "Final per-recipient dispatch guard",
+  "family": "Email delivery and warming",
+  "subfamily": "Email delivery and warming",
+  "trigger": "Mautic native queued, immediate or manual send",
+  "steps": [
+    {
+      "action": "Claim native send intent without bypassing Mautic ownership",
+      "software": "Mautic supported transport hook"
+    },
+    {
+      "action": "Re-read eligibility, sender HOLD and approved revision",
+      "software": "Custom dispatch guard"
+    },
+    {
+      "action": "Atomically reserve per-sender and provider capacity",
+      "software": "E12 / PostgreSQL"
+    },
+    {
+      "action": "Submit through the only authorized production transport",
+      "software": "Managed SMTP"
+    },
+    {
+      "action": "Store accepted, rejected or UNKNOWN receipt",
+      "software": "PostgreSQL"
+    },
+    {
+      "action": "Reconcile before retry or reservation release",
+      "software": "X06"
+    }
+  ],
+  "gate": "Recipient, revision and quota valid at last boundary?",
+  "output": "Guarded send attempt and durable receipt",
+  "acceptance_tests": [
+    "Manual/restarted/immediate worker cannot bypass guard",
+    "Systemd rate limits alone are not per-recipient enforcement"
+  ],
+  "upstream": [
+    "E03",
+    "E04",
+    "X04",
+    "I15",
+    "I33",
+    "I36",
+    "X03",
+    "E05",
+    "E06",
+    "E12"
+  ],
+  "handoffs": [
+    "E06",
+    "X06"
+  ],
+  "source": "Sources/Library/Email_Warming_Workflows_v5_2026-10-25.md",
+  "conditional": false,
+  "notes": "Custom integration to implement and test: supported Mautic transport decorator/plugin or equivalent final-boundary adapter. Ordinary Activepieces prechecks are insufficient.",
+  "failure": "Set the affected marketing sender/campaign to HOLD; retain unknown acceptances and quota reservations pending reconciliation. Update authoritative suppression before releasing further sends.",
+  "status": "DESIGN_SPECIFIED_NOT_DEPLOYED",
+  "baseline": "V7",
+  "consolidation_revision": 1,
+  "controls": [
+    "X02",
+    "X03",
+    "X04",
+    "X06",
+    "X09"
+  ],
+  "runtime_dependencies": [
+    "I14",
+    "I15",
+    "I16",
+    "I17",
+    "I36"
+  ],
+  "software": [
+    "Custom dispatch guard",
+    "E12 / PostgreSQL",
+    "Managed SMTP",
+    "Mautic supported transport hook",
+    "PostgreSQL",
+    "X06"
+  ],
+  "source_class": "retained-and-expanded-email-pattern",
+  "run_contract": {
+    "owner": "Assigned accountable role in OpenProject before activation",
+    "idempotency": "client_id + source_system + source_event_id + action_scope + approved_revision",
+    "retry": "Bounded retry only after retryability classification; unknown remote effects HOLD",
+    "observability": "workflow_id, run_id, correlation_id, state and redacted error; no raw PII labels",
+    "recovery": "Restore HOLD; reapply suppression/deletion and reconcile external receipts before replay",
+    "completion": "Named output plus acceptance evidence, not merely a running service"
+  }
+}

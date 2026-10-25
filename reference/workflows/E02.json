@@ -1,0 +1,82 @@
+{
+  "id": "E02",
+  "name": "Contact permission, hygiene and segmentation",
+  "family": "Email delivery and warming",
+  "subfamily": "Email delivery and warming",
+  "trigger": "New contact, import or lifecycle update",
+  "steps": [
+    {
+      "action": "Validate provenance and channel-specific permission",
+      "software": "Mautic"
+    },
+    {
+      "action": "Deduplicate and minimize contact data",
+      "software": "Mautic"
+    },
+    {
+      "action": "Apply suppression and provider feedback",
+      "software": "Mautic / managed relay"
+    },
+    {
+      "action": "Select genuine eligible cohort by policy",
+      "software": "Mautic"
+    },
+    {
+      "action": "Store only necessary decision references",
+      "software": "PostgreSQL"
+    }
+  ],
+  "gate": "Recipient eligible for this email purpose?",
+  "output": "Eligible cohort or explicit exclusion",
+  "acceptance_tests": [
+    "Valid address/import not consent",
+    "Unsubscribed contact never reactivated by sync"
+  ],
+  "upstream": [
+    "E01",
+    "M01",
+    "I16",
+    "E10",
+    "E13"
+  ],
+  "handoffs": [
+    "E03",
+    "E05",
+    "M25"
+  ],
+  "source": "Sources/Library/Email_Warming_Workflows_v5_2026-10-25.md",
+  "conditional": false,
+  "notes": "",
+  "failure": "Set the affected marketing sender/campaign to HOLD; retain unknown acceptances and quota reservations pending reconciliation. Update authoritative suppression before releasing further sends.",
+  "status": "DESIGN_SPECIFIED_NOT_DEPLOYED",
+  "baseline": "V7",
+  "consolidation_revision": 1,
+  "controls": [
+    "X02",
+    "X03",
+    "X04",
+    "X06",
+    "X09"
+  ],
+  "runtime_dependencies": [
+    "I14",
+    "I15",
+    "I16",
+    "I17",
+    "I36"
+  ],
+  "software": [
+    "Mautic",
+    "Mautic / managed relay",
+    "PostgreSQL"
+  ],
+  "source_class": "retained-and-expanded-email-pattern",
+  "run_contract": {
+    "owner": "Assigned accountable role in OpenProject before activation",
+    "idempotency": "client_id + source_system + source_event_id + action_scope + approved_revision",
+    "retry": "Bounded retry only after retryability classification; unknown remote effects HOLD",
+    "observability": "workflow_id, run_id, correlation_id, state and redacted error; no raw PII labels",
+    "recovery": "Restore HOLD; reapply suppression/deletion and reconcile external receipts before replay",
+    "completion": "Named output plus acceptance evidence, not merely a running service"
+  }
+}

@@ -1,0 +1,2235 @@
+{
+  "schema_version": "1",
+  "repository": "CT-Infrastructure/marketing-v7-email",
+  "canonical_repository": "CT-Infrastructure/marketing-v7-control",
+  "original_package_manifest_sha256": "c7b6564a2e4113abb25ae3bfad15f9f7a862879e8da62f5b31f2bef4c8c859a7",
+  "outbound_effects": "HOLD",
+  "runtime_tests": "NOT_RUN",
+  "issues": [
+    {
+      "key": "CP058",
+      "title": "[CP058] Mautic: package, secure and qualify the selected role",
+      "kind": "component",
+      "area": "applications",
+      "phase": "P2",
+      "priority": "P1",
+      "risk": "high",
+      "parent_key": "EP-COMP-APPS",
+      "depends_on": [
+        "F04",
+        "F05",
+        "F06",
+        "F09",
+        "CP085",
+        "CP028"
+      ],
+      "write_paths": [
+        "deploy/components/mautic/"
+      ],
+      "locks": [],
+      "resources": {
+        "cpu": 1,
+        "memory_mib": 1536,
+        "gpu": 0,
+        "slots": 1,
+        "integration": 0
+      },
+      "manual": false,
+      "enabled_by_default": true,
+      "workflow_id": null,
+      "body_path": "backlog/issues/CP058.md",
+      "completion_authority": "independent reviewer + trusted integration controller",
+      "production_authorized": false,
+      "initial_state": "BACKLOG",
+      "component_name": "Mautic",
+      "deployment_mode": "rootless-quadlet-when-supported",
+      "selection_required": false,
+      "body_sha256": "206efa5ae344157ba7808b19c6ad3b35bb61a1083c00c6dec0026f8e272e9118"
+    },
+    {
+      "key": "CP073",
+      "title": "[CP073] checkdmarc: package, secure and qualify the selected role",
+      "kind": "component",
+      "area": "engineering",
+      "phase": "P2",
+      "priority": "P1",
+      "risk": "medium",
+      "parent_key": "EP-COMP-TOOLS",
+      "depends_on": [
+        "F04",
+        "F05",
+        "F06",
+        "F09"
+      ],
+      "write_paths": [
+        "deploy/components/checkdmarc/"
+      ],
+      "locks": [],
+      "resources": {
+        "cpu": 1,
+        "memory_mib": 1536,
+        "gpu": 0,
+        "slots": 1,
+        "integration": 0
+      },
+      "manual": false,
+      "enabled_by_default": true,
+      "workflow_id": null,
+      "body_path": "backlog/issues/CP073.md",
+      "completion_authority": "independent reviewer + trusted integration controller",
+      "production_authorized": false,
+      "initial_state": "BACKLOG",
+      "component_name": "checkdmarc",
+      "deployment_mode": "bounded-job-or-library",
+      "selection_required": false,
+      "body_sha256": "37bf1da19e79460c5c4f3fbd3b7024edc1dde541077ef4f3d9bc264017d03261"
+    },
+    {
+      "key": "CP074",
+      "title": "[CP074] parsedmarc: package, secure and qualify the selected role",
+      "kind": "component",
+      "area": "engineering",
+      "phase": "P2",
+      "priority": "P1",
+      "risk": "medium",
+      "parent_key": "EP-COMP-TOOLS",
+      "depends_on": [
+        "F04",
+        "F05",
+        "F06",
+        "F09"
+      ],
+      "write_paths": [
+        "deploy/components/parsedmarc/"
+      ],
+      "locks": [],
+      "resources": {
+        "cpu": 1,
+        "memory_mib": 1536,
+        "gpu": 0,
+        "slots": 1,
+        "integration": 0
+      },
+      "manual": false,
+      "enabled_by_default": true,
+      "workflow_id": null,
+      "body_path": "backlog/issues/CP074.md",
+      "completion_authority": "independent reviewer + trusted integration controller",
+      "production_authorized": false,
+      "initial_state": "BACKLOG",
+      "component_name": "parsedmarc",
+      "deployment_mode": "bounded-job-or-library",
+      "selection_required": false,
+      "body_sha256": "6af3226256a1a8ab102bfc6c5de1c0c51ece4702a2c602cfa9a7efe56fbe2b07"
+    },
+    {
+      "key": "CP075",
+      "title": "[CP075] Mailpit: package, secure and qualify the selected role",
+      "kind": "component",
+      "area": "engineering",
+      "phase": "P2",
+      "priority": "P1",
+      "risk": "medium",
+      "parent_key": "EP-COMP-TOOLS",
+      "depends_on": [
+        "F04",
+        "F05",
+        "F06",
+        "F09"
+      ],
+      "write_paths": [
+        "deploy/components/mailpit/"
+      ],
+      "locks": [],
+      "resources": {
+        "cpu": 1,
+        "memory_mib": 1536,
+        "gpu": 0,
+        "slots": 1,
+        "integration": 0
+      },
+      "manual": false,
+      "enabled_by_default": true,
+      "workflow_id": null,
+      "body_path": "backlog/issues/CP075.md",
+      "completion_authority": "independent reviewer + trusted integration controller",
+      "production_authorized": false,
+      "initial_state": "BACKLOG",
+      "component_name": "Mailpit",
+      "deployment_mode": "rootless-quadlet-when-supported",
+      "selection_required": false,
+      "body_sha256": "2417b0d75f3616e9baa17fb14ef316820883708f6151c8f748d6e9d24b5557b8"
+    },
+    {
+      "key": "CP146",
+      "title": "[CP146] V5 managed SMTP, mailboxes and authoritative public DNS: package, secure and qualify the selected role",
+      "kind": "provider",
+      "area": "external",
+      "phase": "P2",
+      "priority": "P1",
+      "risk": "high",
+      "parent_key": "EP-COMP-EXTERNAL",
+      "depends_on": [
+        "F05",
+        "F16"
+      ],
+      "write_paths": [
+        "deploy/components/v5-managed-smtp-mailboxes-and-authoritative-public-dns/"
+      ],
+      "locks": [],
+      "resources": {
+        "cpu": 1,
+        "memory_mib": 1536,
+        "gpu": 0,
+        "slots": 1,
+        "integration": 0
+      },
+      "manual": false,
+      "enabled_by_default": true,
+      "workflow_id": null,
+      "body_path": "backlog/issues/CP146.md",
+      "completion_authority": "independent reviewer + trusted integration controller",
+      "production_authorized": false,
+      "initial_state": "BACKLOG",
+      "component_name": "V5 managed SMTP, mailboxes and authoritative public DNS",
+      "deployment_mode": "external-contract-and-mock",
+      "selection_required": false,
+      "body_sha256": "da462a1483365c50f4c2100a97f0be946a34d58325a382eb1dfdb570e0bd5605"
+    },
+    {
+      "key": "WF-E01-BUILD",
+      "title": "[WF-E01-BUILD] Sending identity, DNS, mailbox and relay provisioning: implement",
+      "kind": "implementation",
+      "area": "Email delivery and warming",
+      "phase": "P3",
+      "priority": "P1",
+      "risk": "high",
+      "parent_key": "EP-WF-E",
+      "depends_on": [
+        "F04",
+        "F05",
+        "F06",
+        "F07",
+        "WF-X02-BUILD",
+        "WF-X03-BUILD",
+        "WF-X04-BUILD",
+        "WF-X06-BUILD"
+      ],
+      "write_paths": [
+        "flows/E01/"
+      ],
+      "locks": [],
+      "resources": {
+        "cpu": 1,
+        "memory_mib": 1536,
+        "gpu": 0,
+        "slots": 1,
+        "integration": 0
+      },
+      "manual": false,
+      "enabled_by_default": true,
+      "workflow_id": "E01",
+      "body_path": "backlog/issues/WF-E01-BUILD.md",
+      "completion_authority": "independent reviewer + trusted integration controller",
+      "production_authorized": false,
+      "initial_state": "BACKLOG",
+      "body_sha256": "d0b149f090c5f19de40b5e0b0e897ce5b6d548a9dbb31ae65534bb0bfa1e3eef"
+    },
+    {
+      "key": "WF-E01-TEST",
+      "title": "[WF-E01-TEST] Sending identity, DNS, mailbox and relay provisioning: author independent acceptance tests",
+      "kind": "test-authoring",
+      "area": "Email delivery and warming",
+      "phase": "P2",
+      "priority": "P1",
+      "risk": "medium",
+      "parent_key": "WF-E01-BUILD",
+      "depends_on": [
+        "F04",
+        "F05",
+        "F07"
+      ],
+      "write_paths": [
+        "tests/workflows/E01/"
+      ],
+      "locks": [],
+      "resources": {
+        "cpu": 1,
+        "memory_mib": 1536,
+        "gpu": 0,
+        "slots": 1,
+        "integration": 0
+      },
+      "manual": false,
+      "enabled_by_default": true,
+      "workflow_id": "E01",
+      "body_path": "backlog/issues/WF-E01-TEST.md",
+      "completion_authority": "independent reviewer + trusted integration controller",
+      "production_authorized": false,
+      "initial_state": "BACKLOG",
+      "body_sha256": "664679bc7483b061899728ee0437fd59ebde0e7b0c996c8e15984d5f21abfbbd"
+    },
+    {
+      "key": "WF-E01-VERIFY",
+      "title": "[WF-E01-VERIFY] Sending identity, DNS, mailbox and relay provisioning: qualify integrated behavior",
+      "kind": "verification",
+      "area": "Email delivery and warming",
+      "phase": "P4",
+      "priority": "P1",
+      "risk": "high",
+      "parent_key": "WF-E01-BUILD",
+      "depends_on": [
+        "WF-E01-BUILD",
+        "WF-E01-TEST",
+        "F18",
+        "CP026",
+        "CP027",
+        "CP056",
+        "CP058",
+        "CP073",
+        "WF-X02-VERIFY",
+        "WF-X03-VERIFY",
+        "WF-X04-VERIFY",
+        "WF-X06-VERIFY",
+        "WF-X09-VERIFY"
+      ],
+      "write_paths": [
+        "evidence/workflows/E01/"
+      ],
+      "locks": [],
+      "resources": {
+        "cpu": 2,
+        "memory_mib": 3072,
+        "gpu": 0,
+        "slots": 1,
+        "integration": 1
+      },
+      "manual": false,
+      "enabled_by_default": true,
+      "workflow_id": "E01",
+      "body_path": "backlog/issues/WF-E01-VERIFY.md",
+      "completion_authority": "independent reviewer + trusted integration controller",
+      "production_authorized": false,
+      "initial_state": "BACKLOG",
+      "requires_independent_agent": true,
+      "evidence_level": "SANDBOX_QUALIFIED_ONLY",
+      "body_sha256": "bfe7d3c14327f98e61e45c9017f74914359b94afb1dc3c1656232679c85a5ebb"
+    },
+    {
+      "key": "WF-E02-BUILD",
+      "title": "[WF-E02-BUILD] Contact permission, hygiene and segmentation: implement",
+      "kind": "implementation",
+      "area": "Email delivery and warming",
+      "phase": "P3",
+      "priority": "P1",
+      "risk": "high",
+      "parent_key": "EP-WF-E",
+      "depends_on": [
+        "F04",
+        "F05",
+        "F06",
+        "F07",
+        "WF-X02-BUILD",
+        "WF-X03-BUILD",
+        "WF-X04-BUILD",
+        "WF-X06-BUILD"
+      ],
+      "write_paths": [
+        "flows/E02/"
+      ],
+      "locks": [],
+      "resources": {
+        "cpu": 1,
+        "memory_mib": 1536,
+        "gpu": 0,
+        "slots": 1,
+        "integration": 0
+      },
+      "manual": false,
+      "enabled_by_default": true,
+      "workflow_id": "E02",
+      "body_path": "backlog/issues/WF-E02-BUILD.md",
+      "completion_authority": "independent reviewer + trusted integration controller",
+      "production_authorized": false,
+      "initial_state": "BACKLOG",
+      "body_sha256": "a3bf56ed674afbe758850cc2aeb04352d4d186cbd239726180c6136193122fee"
+    },
+    {
+      "key": "WF-E02-TEST",
+      "title": "[WF-E02-TEST] Contact permission, hygiene and segmentation: author independent acceptance tests",
+      "kind": "test-authoring",
+      "area": "Email delivery and warming",
+      "phase": "P2",
+      "priority": "P1",
+      "risk": "medium",
+      "parent_key": "WF-E02-BUILD",
+      "depends_on": [
+        "F04",
+        "F05",
+        "F07"
+      ],
+      "write_paths": [
+        "tests/workflows/E02/"
+      ],
+      "locks": [],
+      "resources": {
+        "cpu": 1,
+        "memory_mib": 1536,
+        "gpu": 0,
+        "slots": 1,
+        "integration": 0
+      },
+      "manual": false,
+      "enabled_by_default": true,
+      "workflow_id": "E02",
+      "body_path": "backlog/issues/WF-E02-TEST.md",
+      "completion_authority": "independent reviewer + trusted integration controller",
+      "production_authorized": false,
+      "initial_state": "BACKLOG",
+      "body_sha256": "5d0d01e5161314b83131d5e730e957e58337ffe8ad0973bd3e49c49026fe7443"
+    },
+    {
+      "key": "WF-E02-VERIFY",
+      "title": "[WF-E02-VERIFY] Contact permission, hygiene and segmentation: qualify integrated behavior",
+      "kind": "verification",
+      "area": "Email delivery and warming",
+      "phase": "P4",
+      "priority": "P1",
+      "risk": "high",
+      "parent_key": "WF-E02-BUILD",
+      "depends_on": [
+        "WF-E02-BUILD",
+        "WF-E02-TEST",
+        "F18",
+        "CP027",
+        "CP058",
+        "WF-X02-VERIFY",
+        "WF-X03-VERIFY",
+        "WF-X04-VERIFY",
+        "WF-X06-VERIFY",
+        "WF-X09-VERIFY"
+      ],
+      "write_paths": [
+        "evidence/workflows/E02/"
+      ],
+      "locks": [],
+      "resources": {
+        "cpu": 2,
+        "memory_mib": 3072,
+        "gpu": 0,
+        "slots": 1,
+        "integration": 1
+      },
+      "manual": false,
+      "enabled_by_default": true,
+      "workflow_id": "E02",
+      "body_path": "backlog/issues/WF-E02-VERIFY.md",
+      "completion_authority": "independent reviewer + trusted integration controller",
+      "production_authorized": false,
+      "initial_state": "BACKLOG",
+      "requires_independent_agent": true,
+      "evidence_level": "SANDBOX_QUALIFIED_ONLY",
+      "body_sha256": "ffc0b93fb07e426aec8543af0934aacb804fdaa6c0ff5e7df4cc18431acb5d8a"
+    },
+    {
+      "key": "WF-E03-BUILD",
+      "title": "[WF-E03-BUILD] Email content, landing pages and exact review: implement",
+      "kind": "implementation",
+      "area": "Email delivery and warming",
+      "phase": "P3",
+      "priority": "P1",
+      "risk": "high",
+      "parent_key": "EP-WF-E",
+      "depends_on": [
+        "F04",
+        "F05",
+        "F06",
+        "F07",
+        "WF-X02-BUILD",
+        "WF-X03-BUILD",
+        "WF-X04-BUILD",
+        "WF-X06-BUILD"
+      ],
+      "write_paths": [
+        "flows/E03/"
+      ],
+      "locks": [],
+      "resources": {
+        "cpu": 1,
+        "memory_mib": 1536,
+        "gpu": 0,
+        "slots": 1,
+        "integration": 0
+      },
+      "manual": false,
+      "enabled_by_default": true,
+      "workflow_id": "E03",
+      "body_path": "backlog/issues/WF-E03-BUILD.md",
+      "completion_authority": "independent reviewer + trusted integration controller",
+      "production_authorized": false,
+      "initial_state": "BACKLOG",
+      "body_sha256": "d48bd90d775300d1a9771bbdb17f51571c2596beb45775fa618c3d5d8e8f83f2"
+    },
+    {
+      "key": "WF-E03-TEST",
+      "title": "[WF-E03-TEST] Email content, landing pages and exact review: author independent acceptance tests",
+      "kind": "test-authoring",
+      "area": "Email delivery and warming",
+      "phase": "P2",
+      "priority": "P1",
+      "risk": "medium",
+      "parent_key": "WF-E03-BUILD",
+      "depends_on": [
+        "F04",
+        "F05",
+        "F07"
+      ],
+      "write_paths": [
+        "tests/workflows/E03/"
+      ],
+      "locks": [],
+      "resources": {
+        "cpu": 1,
+        "memory_mib": 1536,
+        "gpu": 0,
+        "slots": 1,
+        "integration": 0
+      },
+      "manual": false,
+      "enabled_by_default": true,
+      "workflow_id": "E03",
+      "body_path": "backlog/issues/WF-E03-TEST.md",
+      "completion_authority": "independent reviewer + trusted integration controller",
+      "production_authorized": false,
+      "initial_state": "BACKLOG",
+      "body_sha256": "78369190ce9f33ec1df6d0728ce72543af07c23e35be7164de2508666ab138f9"
+    },
+    {
+      "key": "WF-E03-VERIFY",
+      "title": "[WF-E03-VERIFY] Email content, landing pages and exact review: qualify integrated behavior",
+      "kind": "verification",
+      "area": "Email delivery and warming",
+      "phase": "P4",
+      "priority": "P1",
+      "risk": "high",
+      "parent_key": "WF-E03-BUILD",
+      "depends_on": [
+        "WF-E03-BUILD",
+        "WF-E03-TEST",
+        "F18",
+        "CP027",
+        "CP033",
+        "CP053",
+        "CP056",
+        "CP057",
+        "CP058",
+        "CP059",
+        "CP080",
+        "WF-X02-VERIFY",
+        "WF-X03-VERIFY",
+        "WF-X04-VERIFY",
+        "WF-X06-VERIFY",
+        "WF-X09-VERIFY"
+      ],
+      "write_paths": [
+        "evidence/workflows/E03/"
+      ],
+      "locks": [],
+      "resources": {
+        "cpu": 2,
+        "memory_mib": 3072,
+        "gpu": 0,
+        "slots": 1,
+        "integration": 1
+      },
+      "manual": false,
+      "enabled_by_default": true,
+      "workflow_id": "E03",
+      "body_path": "backlog/issues/WF-E03-VERIFY.md",
+      "completion_authority": "independent reviewer + trusted integration controller",
+      "production_authorized": false,
+      "initial_state": "BACKLOG",
+      "requires_independent_agent": true,
+      "evidence_level": "SANDBOX_QUALIFIED_ONLY",
+      "body_sha256": "a84c337930bd6ea77a880e8579ef69d5c3341e92b6ca7f81cba945c893ecbd44"
+    },
+    {
+      "key": "WF-E04-BUILD",
+      "title": "[WF-E04-BUILD] Staging simulation and controlled real-mailbox QA: implement",
+      "kind": "implementation",
+      "area": "Email delivery and warming",
+      "phase": "P3",
+      "priority": "P1",
+      "risk": "high",
+      "parent_key": "EP-WF-E",
+      "depends_on": [
+        "F04",
+        "F05",
+        "F06",
+        "F07",
+        "WF-X02-BUILD",
+        "WF-X03-BUILD",
+        "WF-X04-BUILD",
+        "WF-X06-BUILD"
+      ],
+      "write_paths": [
+        "flows/E04/"
+      ],
+      "locks": [],
+      "resources": {
+        "cpu": 1,
+        "memory_mib": 1536,
+        "gpu": 0,
+        "slots": 1,
+        "integration": 0
+      },
+      "manual": false,
+      "enabled_by_default": true,
+      "workflow_id": "E04",
+      "body_path": "backlog/issues/WF-E04-BUILD.md",
+      "completion_authority": "independent reviewer + trusted integration controller",
+      "production_authorized": false,
+      "initial_state": "BACKLOG",
+      "body_sha256": "b960997b3923cff2eacc0a1bdc61b5499662c070683f0d7cdfb03f1eb6d50327"
+    },
+    {
+      "key": "WF-E04-TEST",
+      "title": "[WF-E04-TEST] Staging simulation and controlled real-mailbox QA: author independent acceptance tests",
+      "kind": "test-authoring",
+      "area": "Email delivery and warming",
+      "phase": "P2",
+      "priority": "P1",
+      "risk": "medium",
+      "parent_key": "WF-E04-BUILD",
+      "depends_on": [
+        "F04",
+        "F05",
+        "F07"
+      ],
+      "write_paths": [
+        "tests/workflows/E04/"
+      ],
+      "locks": [],
+      "resources": {
+        "cpu": 1,
+        "memory_mib": 1536,
+        "gpu": 0,
+        "slots": 1,
+        "integration": 0
+      },
+      "manual": false,
+      "enabled_by_default": true,
+      "workflow_id": "E04",
+      "body_path": "backlog/issues/WF-E04-TEST.md",
+      "completion_authority": "independent reviewer + trusted integration controller",
+      "production_authorized": false,
+      "initial_state": "BACKLOG",
+      "body_sha256": "35cf57dd19dcc2711a2c024f2b2b6927c613a137e29a40cda64fb73e34ed3e94"
+    },
+    {
+      "key": "WF-E04-VERIFY",
+      "title": "[WF-E04-VERIFY] Staging simulation and controlled real-mailbox QA: qualify integrated behavior",
+      "kind": "verification",
+      "area": "Email delivery and warming",
+      "phase": "P4",
+      "priority": "P1",
+      "risk": "high",
+      "parent_key": "WF-E04-BUILD",
+      "depends_on": [
+        "WF-E04-BUILD",
+        "WF-E04-TEST",
+        "F18",
+        "CP027",
+        "CP053",
+        "CP056",
+        "CP058",
+        "CP073",
+        "CP075",
+        "WF-X02-VERIFY",
+        "WF-X03-VERIFY",
+        "WF-X04-VERIFY",
+        "WF-X06-VERIFY",
+        "WF-X09-VERIFY"
+      ],
+      "write_paths": [
+        "evidence/workflows/E04/"
+      ],
+      "locks": [],
+      "resources": {
+        "cpu": 2,
+        "memory_mib": 3072,
+        "gpu": 0,
+        "slots": 1,
+        "integration": 1
+      },
+      "manual": false,
+      "enabled_by_default": true,
+      "workflow_id": "E04",
+      "body_path": "backlog/issues/WF-E04-VERIFY.md",
+      "completion_authority": "independent reviewer + trusted integration controller",
+      "production_authorized": false,
+      "initial_state": "BACKLOG",
+      "requires_independent_agent": true,
+      "evidence_level": "SANDBOX_QUALIFIED_ONLY",
+      "body_sha256": "b35a4f361ee42b54d804a4908758cf480aa5aa7ad1488f292b115c530b75da6b"
+    },
+    {
+      "key": "WF-E05-BUILD",
+      "title": "[WF-E05-BUILD] CANARY, gradual ramp and production transition: implement",
+      "kind": "implementation",
+      "area": "Email delivery and warming",
+      "phase": "P3",
+      "priority": "P1",
+      "risk": "high",
+      "parent_key": "EP-WF-E",
+      "depends_on": [
+        "F04",
+        "F05",
+        "F06",
+        "F07",
+        "WF-X02-BUILD",
+        "WF-X03-BUILD",
+        "WF-X04-BUILD",
+        "WF-X06-BUILD"
+      ],
+      "write_paths": [
+        "flows/E05/"
+      ],
+      "locks": [],
+      "resources": {
+        "cpu": 1,
+        "memory_mib": 1536,
+        "gpu": 0,
+        "slots": 1,
+        "integration": 0
+      },
+      "manual": false,
+      "enabled_by_default": true,
+      "workflow_id": "E05",
+      "body_path": "backlog/issues/WF-E05-BUILD.md",
+      "completion_authority": "independent reviewer + trusted integration controller",
+      "production_authorized": false,
+      "initial_state": "BACKLOG",
+      "body_sha256": "5da9d227d80e903fe1ddd442d07e37b6a4461b75275c79f07f0451bffd8bce8b"
+    },
+    {
+      "key": "WF-E05-TEST",
+      "title": "[WF-E05-TEST] CANARY, gradual ramp and production transition: author independent acceptance tests",
+      "kind": "test-authoring",
+      "area": "Email delivery and warming",
+      "phase": "P2",
+      "priority": "P1",
+      "risk": "medium",
+      "parent_key": "WF-E05-BUILD",
+      "depends_on": [
+        "F04",
+        "F05",
+        "F07"
+      ],
+      "write_paths": [
+        "tests/workflows/E05/"
+      ],
+      "locks": [],
+      "resources": {
+        "cpu": 1,
+        "memory_mib": 1536,
+        "gpu": 0,
+        "slots": 1,
+        "integration": 0
+      },
+      "manual": false,
+      "enabled_by_default": true,
+      "workflow_id": "E05",
+      "body_path": "backlog/issues/WF-E05-TEST.md",
+      "completion_authority": "independent reviewer + trusted integration controller",
+      "production_authorized": false,
+      "initial_state": "BACKLOG",
+      "body_sha256": "7e13b0ff4ac4d24cce2fc232b9d61333b40ff4f214ee50f03e2991413467ac41"
+    },
+    {
+      "key": "WF-E05-VERIFY",
+      "title": "[WF-E05-VERIFY] CANARY, gradual ramp and production transition: qualify integrated behavior",
+      "kind": "verification",
+      "area": "Email delivery and warming",
+      "phase": "P4",
+      "priority": "P1",
+      "risk": "high",
+      "parent_key": "WF-E05-BUILD",
+      "depends_on": [
+        "WF-E05-BUILD",
+        "WF-E05-TEST",
+        "F18",
+        "CP027",
+        "CP032",
+        "CP056",
+        "CP058",
+        "WF-X02-VERIFY",
+        "WF-X03-VERIFY",
+        "WF-X04-VERIFY",
+        "WF-X06-VERIFY",
+        "WF-X09-VERIFY"
+      ],
+      "write_paths": [
+        "evidence/workflows/E05/"
+      ],
+      "locks": [],
+      "resources": {
+        "cpu": 2,
+        "memory_mib": 3072,
+        "gpu": 0,
+        "slots": 1,
+        "integration": 1
+      },
+      "manual": false,
+      "enabled_by_default": true,
+      "workflow_id": "E05",
+      "body_path": "backlog/issues/WF-E05-VERIFY.md",
+      "completion_authority": "independent reviewer + trusted integration controller",
+      "production_authorized": false,
+      "initial_state": "BACKLOG",
+      "requires_independent_agent": true,
+      "evidence_level": "SANDBOX_QUALIFIED_ONLY",
+      "body_sha256": "37227deb255a0f2a29131925c6dc0e33abb1e0ff98a3ff48c7364718ba2db866"
+    },
+    {
+      "key": "WF-E06-BUILD",
+      "title": "[WF-E06-BUILD] Delivery callbacks, deduplication and suppression: implement",
+      "kind": "implementation",
+      "area": "Email delivery and warming",
+      "phase": "P3",
+      "priority": "P1",
+      "risk": "high",
+      "parent_key": "EP-WF-E",
+      "depends_on": [
+        "F04",
+        "F05",
+        "F06",
+        "F07",
+        "WF-X02-BUILD",
+        "WF-X03-BUILD",
+        "WF-X04-BUILD",
+        "WF-X06-BUILD"
+      ],
+      "write_paths": [
+        "flows/E06/"
+      ],
+      "locks": [],
+      "resources": {
+        "cpu": 1,
+        "memory_mib": 1536,
+        "gpu": 0,
+        "slots": 1,
+        "integration": 0
+      },
+      "manual": false,
+      "enabled_by_default": true,
+      "workflow_id": "E06",
+      "body_path": "backlog/issues/WF-E06-BUILD.md",
+      "completion_authority": "independent reviewer + trusted integration controller",
+      "production_authorized": false,
+      "initial_state": "BACKLOG",
+      "body_sha256": "a48744156cef6f7b8423b140512491e8cb15edb738772ae17de5b3132a4198e6"
+    },
+    {
+      "key": "WF-E06-TEST",
+      "title": "[WF-E06-TEST] Delivery callbacks, deduplication and suppression: author independent acceptance tests",
+      "kind": "test-authoring",
+      "area": "Email delivery and warming",
+      "phase": "P2",
+      "priority": "P1",
+      "risk": "medium",
+      "parent_key": "WF-E06-BUILD",
+      "depends_on": [
+        "F04",
+        "F05",
+        "F07"
+      ],
+      "write_paths": [
+        "tests/workflows/E06/"
+      ],
+      "locks": [],
+      "resources": {
+        "cpu": 1,
+        "memory_mib": 1536,
+        "gpu": 0,
+        "slots": 1,
+        "integration": 0
+      },
+      "manual": false,
+      "enabled_by_default": true,
+      "workflow_id": "E06",
+      "body_path": "backlog/issues/WF-E06-TEST.md",
+      "completion_authority": "independent reviewer + trusted integration controller",
+      "production_authorized": false,
+      "initial_state": "BACKLOG",
+      "body_sha256": "19225fe0457921f2fe774fecd1fa3adaff5d89195735e7b3ced11c79bdc676c5"
+    },
+    {
+      "key": "WF-E06-VERIFY",
+      "title": "[WF-E06-VERIFY] Delivery callbacks, deduplication and suppression: qualify integrated behavior",
+      "kind": "verification",
+      "area": "Email delivery and warming",
+      "phase": "P4",
+      "priority": "P1",
+      "risk": "high",
+      "parent_key": "WF-E06-BUILD",
+      "depends_on": [
+        "WF-E06-BUILD",
+        "WF-E06-TEST",
+        "F18",
+        "CP027",
+        "CP032",
+        "CP058",
+        "WF-X02-VERIFY",
+        "WF-X03-VERIFY",
+        "WF-X04-VERIFY",
+        "WF-X06-VERIFY",
+        "WF-X09-VERIFY"
+      ],
+      "write_paths": [
+        "evidence/workflows/E06/"
+      ],
+      "locks": [],
+      "resources": {
+        "cpu": 2,
+        "memory_mib": 3072,
+        "gpu": 0,
+        "slots": 1,
+        "integration": 1
+      },
+      "manual": false,
+      "enabled_by_default": true,
+      "workflow_id": "E06",
+      "body_path": "backlog/issues/WF-E06-VERIFY.md",
+      "completion_authority": "independent reviewer + trusted integration controller",
+      "production_authorized": false,
+      "initial_state": "BACKLOG",
+      "requires_independent_agent": true,
+      "evidence_level": "SANDBOX_QUALIFIED_ONLY",
+      "body_sha256": "50e66520f737a4205e993263c783956b613110d319bb9fe69839604c39da0f0f"
+    },
+    {
+      "key": "WF-E07-BUILD",
+      "title": "[WF-E07-BUILD] Authentication, reputation and source-health monitoring: implement",
+      "kind": "implementation",
+      "area": "Email delivery and warming",
+      "phase": "P3",
+      "priority": "P1",
+      "risk": "high",
+      "parent_key": "EP-WF-E",
+      "depends_on": [
+        "F04",
+        "F05",
+        "F06",
+        "F07",
+        "WF-X02-BUILD",
+        "WF-X03-BUILD",
+        "WF-X04-BUILD",
+        "WF-X06-BUILD"
+      ],
+      "write_paths": [
+        "flows/E07/"
+      ],
+      "locks": [],
+      "resources": {
+        "cpu": 1,
+        "memory_mib": 1536,
+        "gpu": 0,
+        "slots": 1,
+        "integration": 0
+      },
+      "manual": false,
+      "enabled_by_default": true,
+      "workflow_id": "E07",
+      "body_path": "backlog/issues/WF-E07-BUILD.md",
+      "completion_authority": "independent reviewer + trusted integration controller",
+      "production_authorized": false,
+      "initial_state": "BACKLOG",
+      "body_sha256": "6e091dada7be19fea3e75760c09ac6da4274d4a57cbe9d781491141a2751ab97"
+    },
+    {
+      "key": "WF-E07-TEST",
+      "title": "[WF-E07-TEST] Authentication, reputation and source-health monitoring: author independent acceptance tests",
+      "kind": "test-authoring",
+      "area": "Email delivery and warming",
+      "phase": "P2",
+      "priority": "P1",
+      "risk": "medium",
+      "parent_key": "WF-E07-BUILD",
+      "depends_on": [
+        "F04",
+        "F05",
+        "F07"
+      ],
+      "write_paths": [
+        "tests/workflows/E07/"
+      ],
+      "locks": [],
+      "resources": {
+        "cpu": 1,
+        "memory_mib": 1536,
+        "gpu": 0,
+        "slots": 1,
+        "integration": 0
+      },
+      "manual": false,
+      "enabled_by_default": true,
+      "workflow_id": "E07",
+      "body_path": "backlog/issues/WF-E07-TEST.md",
+      "completion_authority": "independent reviewer + trusted integration controller",
+      "production_authorized": false,
+      "initial_state": "BACKLOG",
+      "body_sha256": "fb43309260edf4a735c0160e00a82a88ada5d2089c321279d2e3240ca0246908"
+    },
+    {
+      "key": "WF-E07-VERIFY",
+      "title": "[WF-E07-VERIFY] Authentication, reputation and source-health monitoring: qualify integrated behavior",
+      "kind": "verification",
+      "area": "Email delivery and warming",
+      "phase": "P4",
+      "priority": "P1",
+      "risk": "high",
+      "parent_key": "WF-E07-BUILD",
+      "depends_on": [
+        "WF-E07-BUILD",
+        "WF-E07-TEST",
+        "F18",
+        "CP027",
+        "CP041",
+        "CP056",
+        "CP058",
+        "CP073",
+        "CP074",
+        "WF-X02-VERIFY",
+        "WF-X03-VERIFY",
+        "WF-X04-VERIFY",
+        "WF-X06-VERIFY",
+        "WF-X09-VERIFY"
+      ],
+      "write_paths": [
+        "evidence/workflows/E07/"
+      ],
+      "locks": [],
+      "resources": {
+        "cpu": 2,
+        "memory_mib": 3072,
+        "gpu": 0,
+        "slots": 1,
+        "integration": 1
+      },
+      "manual": false,
+      "enabled_by_default": true,
+      "workflow_id": "E07",
+      "body_path": "backlog/issues/WF-E07-VERIFY.md",
+      "completion_authority": "independent reviewer + trusted integration controller",
+      "production_authorized": false,
+      "initial_state": "BACKLOG",
+      "requires_independent_agent": true,
+      "evidence_level": "SANDBOX_QUALIFIED_ONLY",
+      "body_sha256": "420d66faafce44a1f188bc17a965406b53efa40760e566ffe9fb37dc32ab15b9"
+    },
+    {
+      "key": "WF-E08-BUILD",
+      "title": "[WF-E08-BUILD] Risk decisions and email incident handling: implement",
+      "kind": "implementation",
+      "area": "Email delivery and warming",
+      "phase": "P3",
+      "priority": "P1",
+      "risk": "high",
+      "parent_key": "EP-WF-E",
+      "depends_on": [
+        "F04",
+        "F05",
+        "F06",
+        "F07",
+        "WF-X02-BUILD",
+        "WF-X03-BUILD",
+        "WF-X04-BUILD",
+        "WF-X06-BUILD"
+      ],
+      "write_paths": [
+        "flows/E08/"
+      ],
+      "locks": [],
+      "resources": {
+        "cpu": 1,
+        "memory_mib": 1536,
+        "gpu": 0,
+        "slots": 1,
+        "integration": 0
+      },
+      "manual": false,
+      "enabled_by_default": true,
+      "workflow_id": "E08",
+      "body_path": "backlog/issues/WF-E08-BUILD.md",
+      "completion_authority": "independent reviewer + trusted integration controller",
+      "production_authorized": false,
+      "initial_state": "BACKLOG",
+      "body_sha256": "63e9d41d472260be53dc608568c636ee9c3a35d9e7db198a18dde63bbea40584"
+    },
+    {
+      "key": "WF-E08-TEST",
+      "title": "[WF-E08-TEST] Risk decisions and email incident handling: author independent acceptance tests",
+      "kind": "test-authoring",
+      "area": "Email delivery and warming",
+      "phase": "P2",
+      "priority": "P1",
+      "risk": "medium",
+      "parent_key": "WF-E08-BUILD",
+      "depends_on": [
+        "F04",
+        "F05",
+        "F07"
+      ],
+      "write_paths": [
+        "tests/workflows/E08/"
+      ],
+      "locks": [],
+      "resources": {
+        "cpu": 1,
+        "memory_mib": 1536,
+        "gpu": 0,
+        "slots": 1,
+        "integration": 0
+      },
+      "manual": false,
+      "enabled_by_default": true,
+      "workflow_id": "E08",
+      "body_path": "backlog/issues/WF-E08-TEST.md",
+      "completion_authority": "independent reviewer + trusted integration controller",
+      "production_authorized": false,
+      "initial_state": "BACKLOG",
+      "body_sha256": "57cabb3e0a4f55f770fe0dd3ac928d080bde6000855d8856310744c52619cf59"
+    },
+    {
+      "key": "WF-E08-VERIFY",
+      "title": "[WF-E08-VERIFY] Risk decisions and email incident handling: qualify integrated behavior",
+      "kind": "verification",
+      "area": "Email delivery and warming",
+      "phase": "P4",
+      "priority": "P1",
+      "risk": "high",
+      "parent_key": "WF-E08-BUILD",
+      "depends_on": [
+        "WF-E08-BUILD",
+        "WF-E08-TEST",
+        "F18",
+        "CP016",
+        "CP027",
+        "CP032",
+        "CP056",
+        "CP058",
+        "WF-X02-VERIFY",
+        "WF-X03-VERIFY",
+        "WF-X04-VERIFY",
+        "WF-X06-VERIFY",
+        "WF-X09-VERIFY"
+      ],
+      "write_paths": [
+        "evidence/workflows/E08/"
+      ],
+      "locks": [],
+      "resources": {
+        "cpu": 2,
+        "memory_mib": 3072,
+        "gpu": 0,
+        "slots": 1,
+        "integration": 1
+      },
+      "manual": false,
+      "enabled_by_default": true,
+      "workflow_id": "E08",
+      "body_path": "backlog/issues/WF-E08-VERIFY.md",
+      "completion_authority": "independent reviewer + trusted integration controller",
+      "production_authorized": false,
+      "initial_state": "BACKLOG",
+      "requires_independent_agent": true,
+      "evidence_level": "SANDBOX_QUALIFIED_ONLY",
+      "body_sha256": "f2957e6cd44aa267118b1eaf568a34ab82e7c265a349a38fee7fe5ebfb020b50"
+    },
+    {
+      "key": "WF-E09-BUILD",
+      "title": "[WF-E09-BUILD] Sender recovery and production requalification: implement",
+      "kind": "implementation",
+      "area": "Email delivery and warming",
+      "phase": "P3",
+      "priority": "P1",
+      "risk": "high",
+      "parent_key": "EP-WF-E",
+      "depends_on": [
+        "F04",
+        "F05",
+        "F06",
+        "F07",
+        "WF-X02-BUILD",
+        "WF-X03-BUILD",
+        "WF-X04-BUILD",
+        "WF-X06-BUILD"
+      ],
+      "write_paths": [
+        "flows/E09/"
+      ],
+      "locks": [],
+      "resources": {
+        "cpu": 1,
+        "memory_mib": 1536,
+        "gpu": 0,
+        "slots": 1,
+        "integration": 0
+      },
+      "manual": false,
+      "enabled_by_default": true,
+      "workflow_id": "E09",
+      "body_path": "backlog/issues/WF-E09-BUILD.md",
+      "completion_authority": "independent reviewer + trusted integration controller",
+      "production_authorized": false,
+      "initial_state": "BACKLOG",
+      "body_sha256": "e2ed8313df3c432c443751c9b9a5ec571ec776f33b40c84bcc36213e58efcef8"
+    },
+    {
+      "key": "WF-E09-TEST",
+      "title": "[WF-E09-TEST] Sender recovery and production requalification: author independent acceptance tests",
+      "kind": "test-authoring",
+      "area": "Email delivery and warming",
+      "phase": "P2",
+      "priority": "P1",
+      "risk": "medium",
+      "parent_key": "WF-E09-BUILD",
+      "depends_on": [
+        "F04",
+        "F05",
+        "F07"
+      ],
+      "write_paths": [
+        "tests/workflows/E09/"
+      ],
+      "locks": [],
+      "resources": {
+        "cpu": 1,
+        "memory_mib": 1536,
+        "gpu": 0,
+        "slots": 1,
+        "integration": 0
+      },
+      "manual": false,
+      "enabled_by_default": true,
+      "workflow_id": "E09",
+      "body_path": "backlog/issues/WF-E09-TEST.md",
+      "completion_authority": "independent reviewer + trusted integration controller",
+      "production_authorized": false,
+      "initial_state": "BACKLOG",
+      "body_sha256": "676cc90be100b316dc7e553536e20d7000a597ecbe44a4d5ab166e96edbc9fd9"
+    },
+    {
+      "key": "WF-E09-VERIFY",
+      "title": "[WF-E09-VERIFY] Sender recovery and production requalification: qualify integrated behavior",
+      "kind": "verification",
+      "area": "Email delivery and warming",
+      "phase": "P4",
+      "priority": "P1",
+      "risk": "high",
+      "parent_key": "WF-E09-BUILD",
+      "depends_on": [
+        "WF-E09-BUILD",
+        "WF-E09-TEST",
+        "F18",
+        "CP027",
+        "CP056",
+        "CP058",
+        "WF-X02-VERIFY",
+        "WF-X03-VERIFY",
+        "WF-X04-VERIFY",
+        "WF-X06-VERIFY",
+        "WF-X09-VERIFY"
+      ],
+      "write_paths": [
+        "evidence/workflows/E09/"
+      ],
+      "locks": [],
+      "resources": {
+        "cpu": 2,
+        "memory_mib": 3072,
+        "gpu": 0,
+        "slots": 1,
+        "integration": 1
+      },
+      "manual": false,
+      "enabled_by_default": true,
+      "workflow_id": "E09",
+      "body_path": "backlog/issues/WF-E09-VERIFY.md",
+      "completion_authority": "independent reviewer + trusted integration controller",
+      "production_authorized": false,
+      "initial_state": "BACKLOG",
+      "requires_independent_agent": true,
+      "evidence_level": "SANDBOX_QUALIFIED_ONLY",
+      "body_sha256": "363a3669d9460e422b6b5b7df19d7185d945d97da8318b58766bb836d47db26d"
+    },
+    {
+      "key": "WF-E10-BUILD",
+      "title": "[WF-E10-BUILD] Routine email operations and periodic review: implement",
+      "kind": "implementation",
+      "area": "Email delivery and warming",
+      "phase": "P3",
+      "priority": "P1",
+      "risk": "high",
+      "parent_key": "EP-WF-E",
+      "depends_on": [
+        "F04",
+        "F05",
+        "F06",
+        "F07",
+        "WF-X02-BUILD",
+        "WF-X03-BUILD",
+        "WF-X04-BUILD",
+        "WF-X06-BUILD"
+      ],
+      "write_paths": [
+        "flows/E10/"
+      ],
+      "locks": [],
+      "resources": {
+        "cpu": 1,
+        "memory_mib": 1536,
+        "gpu": 0,
+        "slots": 1,
+        "integration": 0
+      },
+      "manual": false,
+      "enabled_by_default": true,
+      "workflow_id": "E10",
+      "body_path": "backlog/issues/WF-E10-BUILD.md",
+      "completion_authority": "independent reviewer + trusted integration controller",
+      "production_authorized": false,
+      "initial_state": "BACKLOG",
+      "body_sha256": "db8370753489eaf14f4ef23b9fcc86b4a0c58b919d33621a31ec68725d690051"
+    },
+    {
+      "key": "WF-E10-TEST",
+      "title": "[WF-E10-TEST] Routine email operations and periodic review: author independent acceptance tests",
+      "kind": "test-authoring",
+      "area": "Email delivery and warming",
+      "phase": "P2",
+      "priority": "P1",
+      "risk": "medium",
+      "parent_key": "WF-E10-BUILD",
+      "depends_on": [
+        "F04",
+        "F05",
+        "F07"
+      ],
+      "write_paths": [
+        "tests/workflows/E10/"
+      ],
+      "locks": [],
+      "resources": {
+        "cpu": 1,
+        "memory_mib": 1536,
+        "gpu": 0,
+        "slots": 1,
+        "integration": 0
+      },
+      "manual": false,
+      "enabled_by_default": true,
+      "workflow_id": "E10",
+      "body_path": "backlog/issues/WF-E10-TEST.md",
+      "completion_authority": "independent reviewer + trusted integration controller",
+      "production_authorized": false,
+      "initial_state": "BACKLOG",
+      "body_sha256": "a774ed32948040cc21645c08d99d1d60d55f431ab8c8b1ecfac308827346d755"
+    },
+    {
+      "key": "WF-E10-VERIFY",
+      "title": "[WF-E10-VERIFY] Routine email operations and periodic review: qualify integrated behavior",
+      "kind": "verification",
+      "area": "Email delivery and warming",
+      "phase": "P4",
+      "priority": "P1",
+      "risk": "high",
+      "parent_key": "WF-E10-BUILD",
+      "depends_on": [
+        "WF-E10-BUILD",
+        "WF-E10-TEST",
+        "F18",
+        "CP027",
+        "CP041",
+        "CP056",
+        "CP058",
+        "CP073",
+        "WF-X02-VERIFY",
+        "WF-X03-VERIFY",
+        "WF-X04-VERIFY",
+        "WF-X06-VERIFY",
+        "WF-X09-VERIFY"
+      ],
+      "write_paths": [
+        "evidence/workflows/E10/"
+      ],
+      "locks": [],
+      "resources": {
+        "cpu": 2,
+        "memory_mib": 3072,
+        "gpu": 0,
+        "slots": 1,
+        "integration": 1
+      },
+      "manual": false,
+      "enabled_by_default": true,
+      "workflow_id": "E10",
+      "body_path": "backlog/issues/WF-E10-VERIFY.md",
+      "completion_authority": "independent reviewer + trusted integration controller",
+      "production_authorized": false,
+      "initial_state": "BACKLOG",
+      "requires_independent_agent": true,
+      "evidence_level": "SANDBOX_QUALIFIED_ONLY",
+      "body_sha256": "6cc399e6511f7e1dc537da4a2bb43d86304922fe2eff0e87052277d83097bc42"
+    },
+    {
+      "key": "WF-E11-BUILD",
+      "title": "[WF-E11-BUILD] Final per-recipient dispatch guard: implement",
+      "kind": "implementation",
+      "area": "Email delivery and warming",
+      "phase": "P3",
+      "priority": "P1",
+      "risk": "high",
+      "parent_key": "EP-WF-E",
+      "depends_on": [
+        "F04",
+        "F05",
+        "F06",
+        "F07",
+        "WF-X02-BUILD",
+        "WF-X03-BUILD",
+        "WF-X04-BUILD",
+        "WF-X06-BUILD"
+      ],
+      "write_paths": [
+        "flows/E11/"
+      ],
+      "locks": [],
+      "resources": {
+        "cpu": 1,
+        "memory_mib": 1536,
+        "gpu": 0,
+        "slots": 1,
+        "integration": 0
+      },
+      "manual": false,
+      "enabled_by_default": true,
+      "workflow_id": "E11",
+      "body_path": "backlog/issues/WF-E11-BUILD.md",
+      "completion_authority": "independent reviewer + trusted integration controller",
+      "production_authorized": false,
+      "initial_state": "BACKLOG",
+      "body_sha256": "abf524cae9f61727fe317d4db32e072b9b0f9f52940ed96bf846c14c31b09d9c"
+    },
+    {
+      "key": "WF-E11-TEST",
+      "title": "[WF-E11-TEST] Final per-recipient dispatch guard: author independent acceptance tests",
+      "kind": "test-authoring",
+      "area": "Email delivery and warming",
+      "phase": "P2",
+      "priority": "P1",
+      "risk": "medium",
+      "parent_key": "WF-E11-BUILD",
+      "depends_on": [
+        "F04",
+        "F05",
+        "F07"
+      ],
+      "write_paths": [
+        "tests/workflows/E11/"
+      ],
+      "locks": [],
+      "resources": {
+        "cpu": 1,
+        "memory_mib": 1536,
+        "gpu": 0,
+        "slots": 1,
+        "integration": 0
+      },
+      "manual": false,
+      "enabled_by_default": true,
+      "workflow_id": "E11",
+      "body_path": "backlog/issues/WF-E11-TEST.md",
+      "completion_authority": "independent reviewer + trusted integration controller",
+      "production_authorized": false,
+      "initial_state": "BACKLOG",
+      "body_sha256": "700239324b6f47c1fadd8aa219170423a66c3343f0c7db2bb082a4c7bccc6ed2"
+    },
+    {
+      "key": "WF-E11-VERIFY",
+      "title": "[WF-E11-VERIFY] Final per-recipient dispatch guard: qualify integrated behavior",
+      "kind": "verification",
+      "area": "Email delivery and warming",
+      "phase": "P4",
+      "priority": "P1",
+      "risk": "high",
+      "parent_key": "WF-E11-BUILD",
+      "depends_on": [
+        "WF-E11-BUILD",
+        "WF-E11-TEST",
+        "F18",
+        "CP027",
+        "CP058",
+        "CP085",
+        "WF-X02-VERIFY",
+        "WF-X03-VERIFY",
+        "WF-X04-VERIFY",
+        "WF-X06-VERIFY",
+        "WF-X09-VERIFY"
+      ],
+      "write_paths": [
+        "evidence/workflows/E11/"
+      ],
+      "locks": [],
+      "resources": {
+        "cpu": 2,
+        "memory_mib": 3072,
+        "gpu": 0,
+        "slots": 1,
+        "integration": 1
+      },
+      "manual": false,
+      "enabled_by_default": true,
+      "workflow_id": "E11",
+      "body_path": "backlog/issues/WF-E11-VERIFY.md",
+      "completion_authority": "independent reviewer + trusted integration controller",
+      "production_authorized": false,
+      "initial_state": "BACKLOG",
+      "requires_independent_agent": true,
+      "evidence_level": "SANDBOX_QUALIFIED_ONLY",
+      "body_sha256": "663c2f6a71316e802e4488d11dfde93be231ad2a73351e5aa6c274e45eb78472"
+    },
+    {
+      "key": "WF-E12-BUILD",
+      "title": "[WF-E12-BUILD] Atomic sender quota and warm-up reservations: implement",
+      "kind": "implementation",
+      "area": "Email delivery and warming",
+      "phase": "P3",
+      "priority": "P1",
+      "risk": "high",
+      "parent_key": "EP-WF-E",
+      "depends_on": [
+        "F04",
+        "F05",
+        "F06",
+        "F07",
+        "WF-X02-BUILD",
+        "WF-X03-BUILD",
+        "WF-X04-BUILD",
+        "WF-X06-BUILD"
+      ],
+      "write_paths": [
+        "flows/E12/"
+      ],
+      "locks": [],
+      "resources": {
+        "cpu": 1,
+        "memory_mib": 1536,
+        "gpu": 0,
+        "slots": 1,
+        "integration": 0
+      },
+      "manual": false,
+      "enabled_by_default": true,
+      "workflow_id": "E12",
+      "body_path": "backlog/issues/WF-E12-BUILD.md",
+      "completion_authority": "independent reviewer + trusted integration controller",
+      "production_authorized": false,
+      "initial_state": "BACKLOG",
+      "body_sha256": "a6a7db89142b47e431a5bee047ba25932e2e9f89b62b5a22481160fe48135aa3"
+    },
+    {
+      "key": "WF-E12-TEST",
+      "title": "[WF-E12-TEST] Atomic sender quota and warm-up reservations: author independent acceptance tests",
+      "kind": "test-authoring",
+      "area": "Email delivery and warming",
+      "phase": "P2",
+      "priority": "P1",
+      "risk": "medium",
+      "parent_key": "WF-E12-BUILD",
+      "depends_on": [
+        "F04",
+        "F05",
+        "F07"
+      ],
+      "write_paths": [
+        "tests/workflows/E12/"
+      ],
+      "locks": [],
+      "resources": {
+        "cpu": 1,
+        "memory_mib": 1536,
+        "gpu": 0,
+        "slots": 1,
+        "integration": 0
+      },
+      "manual": false,
+      "enabled_by_default": true,
+      "workflow_id": "E12",
+      "body_path": "backlog/issues/WF-E12-TEST.md",
+      "completion_authority": "independent reviewer + trusted integration controller",
+      "production_authorized": false,
+      "initial_state": "BACKLOG",
+      "body_sha256": "f4b644b89cfab43e02508600eb38b225a2bce78da1ab8e9605dad2f6ca88d567"
+    },
+    {
+      "key": "WF-E12-VERIFY",
+      "title": "[WF-E12-VERIFY] Atomic sender quota and warm-up reservations: qualify integrated behavior",
+      "kind": "verification",
+      "area": "Email delivery and warming",
+      "phase": "P4",
+      "priority": "P1",
+      "risk": "high",
+      "parent_key": "WF-E12-BUILD",
+      "depends_on": [
+        "WF-E12-BUILD",
+        "WF-E12-TEST",
+        "F18",
+        "CP027",
+        "CP058",
+        "WF-X02-VERIFY",
+        "WF-X03-VERIFY",
+        "WF-X04-VERIFY",
+        "WF-X06-VERIFY",
+        "WF-X09-VERIFY"
+      ],
+      "write_paths": [
+        "evidence/workflows/E12/"
+      ],
+      "locks": [],
+      "resources": {
+        "cpu": 2,
+        "memory_mib": 3072,
+        "gpu": 0,
+        "slots": 1,
+        "integration": 1
+      },
+      "manual": false,
+      "enabled_by_default": true,
+      "workflow_id": "E12",
+      "body_path": "backlog/issues/WF-E12-VERIFY.md",
+      "completion_authority": "independent reviewer + trusted integration controller",
+      "production_authorized": false,
+      "initial_state": "BACKLOG",
+      "requires_independent_agent": true,
+      "evidence_level": "SANDBOX_QUALIFIED_ONLY",
+      "body_sha256": "28ae8d3a8bb6a443e45772f254239d2d4722c6b2d02d8e39940bb01aeb7412b7"
+    },
+    {
+      "key": "WF-E13-BUILD",
+      "title": "[WF-E13-BUILD] Inbound replies and human sales handoff: implement",
+      "kind": "implementation",
+      "area": "Email delivery and warming",
+      "phase": "P3",
+      "priority": "P1",
+      "risk": "high",
+      "parent_key": "EP-WF-E",
+      "depends_on": [
+        "F04",
+        "F05",
+        "F06",
+        "F07",
+        "WF-X02-BUILD",
+        "WF-X03-BUILD",
+        "WF-X04-BUILD",
+        "WF-X06-BUILD"
+      ],
+      "write_paths": [
+        "flows/E13/"
+      ],
+      "locks": [],
+      "resources": {
+        "cpu": 1,
+        "memory_mib": 1536,
+        "gpu": 0,
+        "slots": 1,
+        "integration": 0
+      },
+      "manual": false,
+      "enabled_by_default": true,
+      "workflow_id": "E13",
+      "body_path": "backlog/issues/WF-E13-BUILD.md",
+      "completion_authority": "independent reviewer + trusted integration controller",
+      "production_authorized": false,
+      "initial_state": "BACKLOG",
+      "body_sha256": "9d7c7b6a42669fbfc603babb44d01e2052ee3f6cd195e8b5e20ff5173622b456"
+    },
+    {
+      "key": "WF-E13-TEST",
+      "title": "[WF-E13-TEST] Inbound replies and human sales handoff: author independent acceptance tests",
+      "kind": "test-authoring",
+      "area": "Email delivery and warming",
+      "phase": "P2",
+      "priority": "P1",
+      "risk": "medium",
+      "parent_key": "WF-E13-BUILD",
+      "depends_on": [
+        "F04",
+        "F05",
+        "F07"
+      ],
+      "write_paths": [
+        "tests/workflows/E13/"
+      ],
+      "locks": [],
+      "resources": {
+        "cpu": 1,
+        "memory_mib": 1536,
+        "gpu": 0,
+        "slots": 1,
+        "integration": 0
+      },
+      "manual": false,
+      "enabled_by_default": true,
+      "workflow_id": "E13",
+      "body_path": "backlog/issues/WF-E13-TEST.md",
+      "completion_authority": "independent reviewer + trusted integration controller",
+      "production_authorized": false,
+      "initial_state": "BACKLOG",
+      "body_sha256": "d3b8e8aae711d08784b3e4356761ac4101b4c655e1bfa7aaeb7ad9b99b9adef0"
+    },
+    {
+      "key": "WF-E13-VERIFY",
+      "title": "[WF-E13-VERIFY] Inbound replies and human sales handoff: qualify integrated behavior",
+      "kind": "verification",
+      "area": "Email delivery and warming",
+      "phase": "P4",
+      "priority": "P1",
+      "risk": "high",
+      "parent_key": "WF-E13-BUILD",
+      "depends_on": [
+        "WF-E13-BUILD",
+        "WF-E13-TEST",
+        "F18",
+        "CP027",
+        "CP032",
+        "CP033",
+        "CP056",
+        "CP058",
+        "WF-X02-VERIFY",
+        "WF-X03-VERIFY",
+        "WF-X04-VERIFY",
+        "WF-X06-VERIFY",
+        "WF-X09-VERIFY"
+      ],
+      "write_paths": [
+        "evidence/workflows/E13/"
+      ],
+      "locks": [],
+      "resources": {
+        "cpu": 2,
+        "memory_mib": 3072,
+        "gpu": 0,
+        "slots": 1,
+        "integration": 1
+      },
+      "manual": false,
+      "enabled_by_default": true,
+      "workflow_id": "E13",
+      "body_path": "backlog/issues/WF-E13-VERIFY.md",
+      "completion_authority": "independent reviewer + trusted integration controller",
+      "production_authorized": false,
+      "initial_state": "BACKLOG",
+      "requires_independent_agent": true,
+      "evidence_level": "SANDBOX_QUALIFIED_ONLY",
+      "body_sha256": "8f509dce94bb591772f7b6eb27664edc6be2f451b0133665382b7d8ee9babe69"
+    },
+    {
+      "key": "WF-E14-BUILD",
+      "title": "[WF-E14-BUILD] DMARC and TLS report ingestion: implement",
+      "kind": "implementation",
+      "area": "Email delivery and warming",
+      "phase": "P3",
+      "priority": "P1",
+      "risk": "high",
+      "parent_key": "EP-WF-E",
+      "depends_on": [
+        "F04",
+        "F05",
+        "F06",
+        "F07",
+        "WF-X02-BUILD",
+        "WF-X03-BUILD",
+        "WF-X04-BUILD",
+        "WF-X06-BUILD"
+      ],
+      "write_paths": [
+        "flows/E14/"
+      ],
+      "locks": [],
+      "resources": {
+        "cpu": 1,
+        "memory_mib": 1536,
+        "gpu": 0,
+        "slots": 1,
+        "integration": 0
+      },
+      "manual": false,
+      "enabled_by_default": true,
+      "workflow_id": "E14",
+      "body_path": "backlog/issues/WF-E14-BUILD.md",
+      "completion_authority": "independent reviewer + trusted integration controller",
+      "production_authorized": false,
+      "initial_state": "BACKLOG",
+      "body_sha256": "2dee7a572cf272f9856188b57e81e2e50b628a80ebf1bd82cafb0b7f866325a8"
+    },
+    {
+      "key": "WF-E14-TEST",
+      "title": "[WF-E14-TEST] DMARC and TLS report ingestion: author independent acceptance tests",
+      "kind": "test-authoring",
+      "area": "Email delivery and warming",
+      "phase": "P2",
+      "priority": "P1",
+      "risk": "medium",
+      "parent_key": "WF-E14-BUILD",
+      "depends_on": [
+        "F04",
+        "F05",
+        "F07"
+      ],
+      "write_paths": [
+        "tests/workflows/E14/"
+      ],
+      "locks": [],
+      "resources": {
+        "cpu": 1,
+        "memory_mib": 1536,
+        "gpu": 0,
+        "slots": 1,
+        "integration": 0
+      },
+      "manual": false,
+      "enabled_by_default": true,
+      "workflow_id": "E14",
+      "body_path": "backlog/issues/WF-E14-TEST.md",
+      "completion_authority": "independent reviewer + trusted integration controller",
+      "production_authorized": false,
+      "initial_state": "BACKLOG",
+      "body_sha256": "934d2ab6dadd35752b3a053783942f3b1fa02c3a040c9571a9c5661c5038e30a"
+    },
+    {
+      "key": "WF-E14-VERIFY",
+      "title": "[WF-E14-VERIFY] DMARC and TLS report ingestion: qualify integrated behavior",
+      "kind": "verification",
+      "area": "Email delivery and warming",
+      "phase": "P4",
+      "priority": "P1",
+      "risk": "high",
+      "parent_key": "WF-E14-BUILD",
+      "depends_on": [
+        "WF-E14-BUILD",
+        "WF-E14-TEST",
+        "F18",
+        "CP027",
+        "CP041",
+        "CP058",
+        "CP074",
+        "WF-X02-VERIFY",
+        "WF-X03-VERIFY",
+        "WF-X04-VERIFY",
+        "WF-X06-VERIFY",
+        "WF-X09-VERIFY"
+      ],
+      "write_paths": [
+        "evidence/workflows/E14/"
+      ],
+      "locks": [],
+      "resources": {
+        "cpu": 2,
+        "memory_mib": 3072,
+        "gpu": 0,
+        "slots": 1,
+        "integration": 1
+      },
+      "manual": false,
+      "enabled_by_default": true,
+      "workflow_id": "E14",
+      "body_path": "backlog/issues/WF-E14-VERIFY.md",
+      "completion_authority": "independent reviewer + trusted integration controller",
+      "production_authorized": false,
+      "initial_state": "BACKLOG",
+      "requires_independent_agent": true,
+      "evidence_level": "SANDBOX_QUALIFIED_ONLY",
+      "body_sha256": "75a078241c6e40179ea196824508ebc4bb721dc58b9de3ee4be2e4d3aca8d24b"
+    }
+  ],
+  "source_files": [
+    {
+      "path": ".gitattributes",
+      "sha256": "4b35d08d52b09ebbf00781356cdcde7cbfeceb7acb9dd5bc8510155b84b8cb15"
+    },
+    {
+      "path": ".github/PULL_REQUEST_TEMPLATE.md",
+      "sha256": "45a1d4bc03f14caa07fc3ca86c08423c0cb684727d01ac05b9f51c38d6cfd978"
+    },
+    {
+      "path": ".github/dependabot.yml",
+      "sha256": "5e54c7e473646e7b15345ac8dc7749922495be1cac57135cdf3cde5e4d20911f"
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "270b1ebeb4281f77c6729353222f9a5438005a98611702575afa4bb132b5fa33"
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "13ce4806ef5c61791e394b2bcd6a6a835acb010a2004efcdd995aa336798aba4"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "sha256": "4330cfd69ac53ebe0355d47f6749d645b94a16dd231be36c86868717af1e9741"
+    },
+    {
+      "path": "SECURITY.md",
+      "sha256": "1f4fc82f34ff5e742660dc86276e98d783c9aca7bd64d568f8a0fafd4942b869"
+    },
+    {
+      "path": "backlog/issues/CP058.md",
+      "sha256": "206efa5ae344157ba7808b19c6ad3b35bb61a1083c00c6dec0026f8e272e9118"
+    },
+    {
+      "path": "backlog/issues/CP073.md",
+      "sha256": "37bf1da19e79460c5c4f3fbd3b7024edc1dde541077ef4f3d9bc264017d03261"
+    },
+    {
+      "path": "backlog/issues/CP074.md",
+      "sha256": "6af3226256a1a8ab102bfc6c5de1c0c51ece4702a2c602cfa9a7efe56fbe2b07"
+    },
+    {
+      "path": "backlog/issues/CP075.md",
+      "sha256": "2417b0d75f3616e9baa17fb14ef316820883708f6151c8f748d6e9d24b5557b8"
+    },
+    {
+      "path": "backlog/issues/CP146.md",
+      "sha256": "da462a1483365c50f4c2100a97f0be946a34d58325a382eb1dfdb570e0bd5605"
+    },
+    {
+      "path": "backlog/issues/WF-E01-BUILD.md",
+      "sha256": "d0b149f090c5f19de40b5e0b0e897ce5b6d548a9dbb31ae65534bb0bfa1e3eef"
+    },
+    {
+      "path": "backlog/issues/WF-E01-TEST.md",
+      "sha256": "664679bc7483b061899728ee0437fd59ebde0e7b0c996c8e15984d5f21abfbbd"
+    },
+    {
+      "path": "backlog/issues/WF-E01-VERIFY.md",
+      "sha256": "bfe7d3c14327f98e61e45c9017f74914359b94afb1dc3c1656232679c85a5ebb"
+    },
+    {
+      "path": "backlog/issues/WF-E02-BUILD.md",
+      "sha256": "a3bf56ed674afbe758850cc2aeb04352d4d186cbd239726180c6136193122fee"
+    },
+    {
+      "path": "backlog/issues/WF-E02-TEST.md",
+      "sha256": "5d0d01e5161314b83131d5e730e957e58337ffe8ad0973bd3e49c49026fe7443"
+    },
+    {
+      "path": "backlog/issues/WF-E02-VERIFY.md",
+      "sha256": "ffc0b93fb07e426aec8543af0934aacb804fdaa6c0ff5e7df4cc18431acb5d8a"
+    },
+    {
+      "path": "backlog/issues/WF-E03-BUILD.md",
+      "sha256": "d48bd90d775300d1a9771bbdb17f51571c2596beb45775fa618c3d5d8e8f83f2"
+    },
+    {
+      "path": "backlog/issues/WF-E03-TEST.md",
+      "sha256": "78369190ce9f33ec1df6d0728ce72543af07c23e35be7164de2508666ab138f9"
+    },
+    {
+      "path": "backlog/issues/WF-E03-VERIFY.md",
+      "sha256": "a84c337930bd6ea77a880e8579ef69d5c3341e92b6ca7f81cba945c893ecbd44"
+    },
+    {
+      "path": "backlog/issues/WF-E04-BUILD.md",
+      "sha256": "b960997b3923cff2eacc0a1bdc61b5499662c070683f0d7cdfb03f1eb6d50327"
+    },
+    {
+      "path": "backlog/issues/WF-E04-TEST.md",
+      "sha256": "35cf57dd19dcc2711a2c024f2b2b6927c613a137e29a40cda64fb73e34ed3e94"
+    },
+    {
+      "path": "backlog/issues/WF-E04-VERIFY.md",
+      "sha256": "b35a4f361ee42b54d804a4908758cf480aa5aa7ad1488f292b115c530b75da6b"
+    },
+    {
+      "path": "backlog/issues/WF-E05-BUILD.md",
+      "sha256": "5da9d227d80e903fe1ddd442d07e37b6a4461b75275c79f07f0451bffd8bce8b"
+    },
+    {
+      "path": "backlog/issues/WF-E05-TEST.md",
+      "sha256": "7e13b0ff4ac4d24cce2fc232b9d61333b40ff4f214ee50f03e2991413467ac41"
+    },
+    {
+      "path": "backlog/issues/WF-E05-VERIFY.md",
+      "sha256": "37227deb255a0f2a29131925c6dc0e33abb1e0ff98a3ff48c7364718ba2db866"
+    },
+    {
+      "path": "backlog/issues/WF-E06-BUILD.md",
+      "sha256": "a48744156cef6f7b8423b140512491e8cb15edb738772ae17de5b3132a4198e6"
+    },
+    {
+      "path": "backlog/issues/WF-E06-TEST.md",
+      "sha256": "19225fe0457921f2fe774fecd1fa3adaff5d89195735e7b3ced11c79bdc676c5"
+    },
+    {
+      "path": "backlog/issues/WF-E06-VERIFY.md",
+      "sha256": "50e66520f737a4205e993263c783956b613110d319bb9fe69839604c39da0f0f"
+    },
+    {
+      "path": "backlog/issues/WF-E07-BUILD.md",
+      "sha256": "6e091dada7be19fea3e75760c09ac6da4274d4a57cbe9d781491141a2751ab97"
+    },
+    {
+      "path": "backlog/issues/WF-E07-TEST.md",
+      "sha256": "fb43309260edf4a735c0160e00a82a88ada5d2089c321279d2e3240ca0246908"
+    },
+    {
+      "path": "backlog/issues/WF-E07-VERIFY.md",
+      "sha256": "420d66faafce44a1f188bc17a965406b53efa40760e566ffe9fb37dc32ab15b9"
+    },
+    {
+      "path": "backlog/issues/WF-E08-BUILD.md",
+      "sha256": "63e9d41d472260be53dc608568c636ee9c3a35d9e7db198a18dde63bbea40584"
+    },
+    {
+      "path": "backlog/issues/WF-E08-TEST.md",
+      "sha256": "57cabb3e0a4f55f770fe0dd3ac928d080bde6000855d8856310744c52619cf59"
+    },
+    {
+      "path": "backlog/issues/WF-E08-VERIFY.md",
+      "sha256": "f2957e6cd44aa267118b1eaf568a34ab82e7c265a349a38fee7fe5ebfb020b50"
+    },
+    {
+      "path": "backlog/issues/WF-E09-BUILD.md",
+      "sha256": "e2ed8313df3c432c443751c9b9a5ec571ec776f33b40c84bcc36213e58efcef8"
+    },
+    {
+      "path": "backlog/issues/WF-E09-TEST.md",
+      "sha256": "676cc90be100b316dc7e553536e20d7000a597ecbe44a4d5ab166e96edbc9fd9"
+    },
+    {
+      "path": "backlog/issues/WF-E09-VERIFY.md",
+      "sha256": "363a3669d9460e422b6b5b7df19d7185d945d97da8318b58766bb836d47db26d"
+    },
+    {
+      "path": "backlog/issues/WF-E10-BUILD.md",
+      "sha256": "db8370753489eaf14f4ef23b9fcc86b4a0c58b919d33621a31ec68725d690051"
+    },
+    {
+      "path": "backlog/issues/WF-E10-TEST.md",
+      "sha256": "a774ed32948040cc21645c08d99d1d60d55f431ab8c8b1ecfac308827346d755"
+    },
+    {
+      "path": "backlog/issues/WF-E10-VERIFY.md",
+      "sha256": "6cc399e6511f7e1dc537da4a2bb43d86304922fe2eff0e87052277d83097bc42"
+    },
+    {
+      "path": "backlog/issues/WF-E11-BUILD.md",
+      "sha256": "abf524cae9f61727fe317d4db32e072b9b0f9f52940ed96bf846c14c31b09d9c"
+    },
+    {
+      "path": "backlog/issues/WF-E11-TEST.md",
+      "sha256": "700239324b6f47c1fadd8aa219170423a66c3343f0c7db2bb082a4c7bccc6ed2"
+    },
+    {
+      "path": "backlog/issues/WF-E11-VERIFY.md",
+      "sha256": "663c2f6a71316e802e4488d11dfde93be231ad2a73351e5aa6c274e45eb78472"
+    },
+    {
+      "path": "backlog/issues/WF-E12-BUILD.md",
+      "sha256": "a6a7db89142b47e431a5bee047ba25932e2e9f89b62b5a22481160fe48135aa3"
+    },
+    {
+      "path": "backlog/issues/WF-E12-TEST.md",
+      "sha256": "f4b644b89cfab43e02508600eb38b225a2bce78da1ab8e9605dad2f6ca88d567"
+    },
+    {
+      "path": "backlog/issues/WF-E12-VERIFY.md",
+      "sha256": "28ae8d3a8bb6a443e45772f254239d2d4722c6b2d02d8e39940bb01aeb7412b7"
+    },
+    {
+      "path": "backlog/issues/WF-E13-BUILD.md",
+      "sha256": "9d7c7b6a42669fbfc603babb44d01e2052ee3f6cd195e8b5e20ff5173622b456"
+    },
+    {
+      "path": "backlog/issues/WF-E13-TEST.md",
+      "sha256": "d3b8e8aae711d08784b3e4356761ac4101b4c655e1bfa7aaeb7ad9b99b9adef0"
+    },
+    {
+      "path": "backlog/issues/WF-E13-VERIFY.md",
+      "sha256": "8f509dce94bb591772f7b6eb27664edc6be2f451b0133665382b7d8ee9babe69"
+    },
+    {
+      "path": "backlog/issues/WF-E14-BUILD.md",
+      "sha256": "2dee7a572cf272f9856188b57e81e2e50b628a80ebf1bd82cafb0b7f866325a8"
+    },
+    {
+      "path": "backlog/issues/WF-E14-TEST.md",
+      "sha256": "934d2ab6dadd35752b3a053783942f3b1fa02c3a040c9571a9c5661c5038e30a"
+    },
+    {
+      "path": "backlog/issues/WF-E14-VERIFY.md",
+      "sha256": "75a078241c6e40179ea196824508ebc4bb721dc58b9de3ee4be2e4d3aca8d24b"
+    },
+    {
+      "path": "docs/orchestration/AGENT_ADAPTER_PROTOCOL.md",
+      "sha256": "2413e69bd3aff462f746acdf0cbef594e06f0cbaf4c16a69c1a238c5f79c5135"
+    },
+    {
+      "path": "docs/orchestration/EXECUTION_PROTOCOL.md",
+      "sha256": "a207180b67b1f906305e5f2745aec3ec143f707f75d8ffc833bd57661c97d08a"
+    },
+    {
+      "path": "docs/security/CONTAINER_AND_HOST_BASELINE.md",
+      "sha256": "e68dfb270486db69e1cab587ea3b2d0d1f41f46ed62ca17c5f9b845d555f3ad8"
+    },
+    {
+      "path": "docs/security/CREDENTIALS_AND_CI.md",
+      "sha256": "549bef0efae48002bfeb010cdfd157d4d173767c378ee01c654a4d32108e9380"
+    },
+    {
+      "path": "docs/security/THREAT_MODEL.md",
+      "sha256": "777fe93382515ee8101a98c7326872557bcce5a9ba02824f58bc114d139ee40b"
+    },
+    {
+      "path": "reference/architecture/Consolidated_Self_Hosted_Technology_Stack_v7_Integrated.md",
+      "sha256": "0e4bedeac7c6158cc2997d00a60b7a01109052ff66fcb1e03245211be83e3de4"
+    },
+    {
+      "path": "reference/architecture/Integration_Contracts.md",
+      "sha256": "143a7a5844659dd7c0f36955ce3dea9b4480bd87d6544263b9ffd4f2d3bbbf37"
+    },
+    {
+      "path": "reference/architecture/Unified_Implementation_Guide.md",
+      "sha256": "09e837c901a32d472fe429d546adbecacc81d2eaa3b513e2da0d957fced63c34"
+    },
+    {
+      "path": "reference/components/component_registry.json",
+      "sha256": "de49779855eabdd7f5defc5ff6157d6a3e875f6164d64278c4a70338d029899e"
+    },
+    {
+      "path": "reference/mermaid/E01.mmd",
+      "sha256": "b70f5039d779ab65eb4234c7e918e7d10a56be0a4c4dab9d08063dc757e0db32"
+    },
+    {
+      "path": "reference/mermaid/E02.mmd",
+      "sha256": "faa9d3f1eb807f570b6980a804d5eb31bbc5cbcb6650ebb133f96347c4e780b2"
+    },
+    {
+      "path": "reference/mermaid/E03.mmd",
+      "sha256": "26658599199860b4ab2427fd53e29cbc3dd7a5f8d5216a5f9d53505c28cfa906"
+    },
+    {
+      "path": "reference/mermaid/E04.mmd",
+      "sha256": "8f0ca83f13595d6dbc852088cbe333746c23b6305f70c3ffa62f263369c6ca15"
+    },
+    {
+      "path": "reference/mermaid/E05.mmd",
+      "sha256": "ac3c49e6b22b2f8d8b17af1bfe39f91e29d5ed629a6e61423d2ad0dd8e0e2057"
+    },
+    {
+      "path": "reference/mermaid/E06.mmd",
+      "sha256": "830e8b7f75f88bd6f1b411f815085496b1065ccad7c207b48e5bbb23a454c810"
+    },
+    {
+      "path": "reference/mermaid/E07.mmd",
+      "sha256": "df5905b15d081b7ab20726323688b817513189cbe15564e8801b9155daefdf8d"
+    },
+    {
+      "path": "reference/mermaid/E08.mmd",
+      "sha256": "20262dd3a8a796be24b407f4977be1e39b6d4f705eb1e6a5ccd7c4c66a6332b2"
+    },
+    {
+      "path": "reference/mermaid/E09.mmd",
+      "sha256": "360bacf816e54045ae222af569855d192afff706e28c2fc44d29992b2193e9da"
+    },
+    {
+      "path": "reference/mermaid/E10.mmd",
+      "sha256": "f99ef39cd39553005aed8567c6d7171a320f662c9e6347ce8170f0cf28c22290"
+    },
+    {
+      "path": "reference/mermaid/E11.mmd",
+      "sha256": "5db0e9abd3ecacfbc05df75ffc6514c58412223cbaeb3db8041c57067d25a5a4"
+    },
+    {
+      "path": "reference/mermaid/E12.mmd",
+      "sha256": "4b800bfd9437662ca465e534d276c3d8963ecf3ad03f261b1af98fdcc383b755"
+    },
+    {
+      "path": "reference/mermaid/E13.mmd",
+      "sha256": "f8ce506574a3117ad0c6e05375ad5b0e425d28bb66b4c55c94bd2e50d53e375f"
+    },
+    {
+      "path": "reference/mermaid/E14.mmd",
+      "sha256": "373b4281cfcadab60270ee8b31b19c5c830c2662a07a8b47568437a6af714fa0"
+    },
+    {
+      "path": "reference/provenance.json",
+      "sha256": "aba64680d866d7a907e74fdec737760121c6744479cbcc595520d503246331dd"
+    },
+    {
+      "path": "reference/workflows/E01.json",
+      "sha256": "e382d0e5dd39d49f655d686cd81e83092c57dc17ebfaf6ee39362f69aa4a3335"
+    },
+    {
+      "path": "reference/workflows/E02.json",
+      "sha256": "4bbb902119ad57a81accb42d11b75dce48839f40eb9fc7e52e0dbbaad60a5dd2"
+    },
+    {
+      "path": "reference/workflows/E03.json",
+      "sha256": "3db0460a6343fb61aa0f07db2e2b6ee001a4e583360b9308e658e12ffbda8b92"
+    },
+    {
+      "path": "reference/workflows/E04.json",
+      "sha256": "1caef0a3b6dcf3678877e89229fdeb549ac06bf68466390a53310255f11bf6e8"
+    },
+    {
+      "path": "reference/workflows/E05.json",
+      "sha256": "dd257be535992f5957eb91ae49bcfdbeda77d376686244f2b2c00704b5410b97"
+    },
+    {
+      "path": "reference/workflows/E06.json",
+      "sha256": "0eece84923e730d4cddadaf108385e5140166c8bd2e91d78a06ba934820aa602"
+    },
+    {
+      "path": "reference/workflows/E07.json",
+      "sha256": "f3e5e7ddcd8471525153a314f72e91ac5092fcec2d31021ff7a4cd251cffe0b7"
+    },
+    {
+      "path": "reference/workflows/E08.json",
+      "sha256": "487b89644417dd8e9062373298d0ac2e7305b4607a4059ea2aa9bf2cf350adf6"
+    },
+    {
+      "path": "reference/workflows/E09.json",
+      "sha256": "8a881ee54bbfa42ac4fc4418c72704150477f6f1b84216189a1588a370a79c2f"
+    },
+    {
+      "path": "reference/workflows/E10.json",
+      "sha256": "c026bd458bab4ca0eaba7e85f6c28424ba7e271d3c43a12a4e88c166142c325c"
+    },
+    {
+      "path": "reference/workflows/E11.json",
+      "sha256": "8751befe102b9def2395adfffacf1fa1bf9bfeaa18461cc512066f97644428db"
+    },
+    {
+      "path": "reference/workflows/E12.json",
+      "sha256": "6ec992f05a8976664f621bd286078ea641f23d973312864ae14db5f697f0907f"
+    },
+    {
+      "path": "reference/workflows/E13.json",
+      "sha256": "a36ca2dd98f61504139a65b697daa1603209be8cf5b628195a8d2063dac83801"
+    },
+    {
+      "path": "reference/workflows/E14.json",
+      "sha256": "44b8a82bd2a321567aa143b950c8a4a8a1a64b22618bfc2d411d55b8561c6ee7"
+    },
+    {
+      "path": "schemas/agent-result.schema.json",
+      "sha256": "241f08532bb2aaa5bfacc0575a978d398a3d213e4359e6238c84e09312f0c97d"
+    },
+    {
+      "path": "schemas/evidence.schema.json",
+      "sha256": "85af1c150b29b4e3aab351d63ccbb80a95b159b24f14e7cb92fdae06bf34f9ef"
+    }
+  ]
+}

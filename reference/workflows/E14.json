@@ -1,0 +1,78 @@
+{
+  "id": "E14",
+  "name": "DMARC and TLS report ingestion",
+  "family": "Email delivery and warming",
+  "subfamily": "Email delivery and warming",
+  "trigger": "Report mailbox or scheduled fetch",
+  "steps": [
+    {
+      "action": "Read approved report mailbox securely",
+      "software": "parsedmarc"
+    },
+    {
+      "action": "Parse aggregate and TLS reports with resource bounds",
+      "software": "parsedmarc"
+    },
+    {
+      "action": "Write to supported PostgreSQL output or tested adapter",
+      "software": "PostgreSQL"
+    },
+    {
+      "action": "Deduplicate and retain source timestamps",
+      "software": "Isolated reporting schema"
+    },
+    {
+      "action": "Alert on failures and privacy-sensitive report retention",
+      "software": "Grafana / X08"
+    }
+  ],
+  "gate": "Report valid and supported output tested?",
+  "output": "Traceable authentication-report history",
+  "acceptance_tests": [
+    "Exact parsedmarc release and PostgreSQL extra pinned",
+    "Failure reports minimized by policy"
+  ],
+  "upstream": [
+    "E01"
+  ],
+  "handoffs": [
+    "E07",
+    "X10"
+  ],
+  "source": "Sources/Library/Email_Warming_Workflows_v5_2026-10-25.md",
+  "conditional": false,
+  "notes": "Current upstream documents a PostgreSQL optional output. Validate the installed release rather than assuming every historical release supports it.",
+  "failure": "Set the affected marketing sender/campaign to HOLD; retain unknown acceptances and quota reservations pending reconciliation. Update authoritative suppression before releasing further sends.",
+  "status": "DESIGN_SPECIFIED_NOT_DEPLOYED",
+  "baseline": "V7",
+  "consolidation_revision": 1,
+  "controls": [
+    "X02",
+    "X03",
+    "X04",
+    "X06",
+    "X09"
+  ],
+  "runtime_dependencies": [
+    "I14",
+    "I15",
+    "I16",
+    "I17",
+    "I36"
+  ],
+  "software": [
+    "Grafana / X08",
+    "Isolated reporting schema",
+    "PostgreSQL",
+    "parsedmarc"
+  ],
+  "source_class": "retained-and-expanded-email-pattern",
+  "run_contract": {
+    "owner": "Assigned accountable role in OpenProject before activation",
+    "idempotency": "client_id + source_system + source_event_id + action_scope + approved_revision",
+    "retry": "Bounded retry only after retryability classification; unknown remote effects HOLD",
+    "observability": "workflow_id, run_id, correlation_id, state and redacted error; no raw PII labels",
+    "recovery": "Restore HOLD; reapply suppression/deletion and reconcile external receipts before replay",
+    "completion": "Named output plus acceptance evidence, not merely a running service"
+  }
+}
