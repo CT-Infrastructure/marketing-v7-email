@@ -16,4 +16,5 @@ F05/F16 code and F04 schemas/fixtures. Provider facts and G02 remain HOLD.
 Shared CI is a separate owner handoff: add pinned dependency assembly and both test
 commands from the runbook while preserving existing gates. This component task does
 not edit shared CI. Independent review, actual Git transport qualification, exact-head
-CI, Copilot and acceptance remain root-owned and unclaimed.
+CI, actual GitHub Codex review requested with @codex review, and acceptance remain root-owned and unclaimed.
+Clearance requires an exact-head full explicit favorable assessment (APPROVED preferred, or an authorized unambiguous COMMENTED assessment with no findings or contradictions). CI and native CODEOWNER, approval, last-push, discussion, base-compatibility and merge-eligibility gates remain unchanged. A reaction, header or "No open" alone is not clearance. Any new commit invalidates review. Historical Copilot receipts and original criteria remain unchanged.

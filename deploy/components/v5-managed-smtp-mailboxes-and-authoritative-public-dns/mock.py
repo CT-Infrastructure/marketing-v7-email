@@ -72,6 +72,8 @@ class Mock:
         if k in self.actions:
             require(self.actions[k]['fingerprint']==fingerprint)
             return copy.deepcopy(self.actions[k]['receipt'])
+        # Existing intents above remain replayable even when admission is full.
+        require(len(self.actions)<1000)
         self.eligible(r,e,now)
         require(scenario=='success' or scenario in f05.ERRORS)
         status='HELD' if scenario=='success' else f05.error_decision(scenario,submitted=scenario in {'TIMEOUT_AFTER_SUBMIT','AMBIGUOUS_RESPONSE'})

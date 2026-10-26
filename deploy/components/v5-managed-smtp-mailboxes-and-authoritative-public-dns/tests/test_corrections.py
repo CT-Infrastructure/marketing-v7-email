@@ -94,3 +94,65 @@ class Corrections(unittest.TestCase):
         e['privacy_request']=replace(e['privacy_request'],max_age_seconds=999999999)
         e['permission']=replace(e['permission'],observed_at='2026-10-24T12:00:00Z')
         self.assertEqual(self.make().simulate(r,e)['status'],'HELD')
+
+
+    def capacity_session(self):
+        # Exercise the actual restore bound, retaining distinct historical state.
+        requests=[]; m=self.make()
+        for i in range(1000):
+            r=req('cp146.dns.change',event='synthetic-capacity-'+str(i))
+            r['destination']='synthetic-subject-'+str(i)
+            scenario='TIMEOUT_AFTER_SUBMIT' if i in (0,1) else 'success'
+            m.simulate(r,evidence(r),scenario=scenario); requests.append(r)
+        m.verifier=SyntheticVerifier({
+            b'reconcile':proof(requests[1],event='synthetic-reconciled'),
+            b'suppress':proof(requests[2],kind='suppression',event='synthetic-suppressed',outcome='UNKNOWN'),
+            b'delete':proof(requests[3],kind='delete',event='synthetic-deleted',outcome='UNKNOWN')})
+        for raw in (b'reconcile',b'suppress',b'delete'): m.intake(raw)
+        return m,requests
+
+    def test_capacity_roundtrip_replay_conflict_and_atomic_admission(self):
+        m,requests=self.capacity_session(); before=m.dump()
+        restored=Mock.restore(before,CONFIG,verifier=m.verifier)
+        self.assertEqual(restored.dump(),before)
+        self.assertEqual(len(restored.actions),1000)
+        self.assertEqual(restored.actions[requests[0]['action_key']]['receipt']['status'],'UNKNOWN')
+        self.assertTrue(restored.actions[requests[0]['action_key']]['receipt']['reservation_retained'])
+        self.assertEqual(len(restored.actions[requests[1]['action_key']]['history']),2)
+        self.assertEqual(restored.denials,{(requests[i]['tenant'],requests[i]['destination']) for i in (2,3)})
+        for session in (m,restored):
+            for r in requests[:4]:
+                self.assertEqual(session.simulate(r,{},scenario='invalid'),m.actions[r['action_key']]['receipt'])
+                changed=copy.deepcopy(r); changed['payload_ref']='synthetic-changed'
+                with self.assertRaises(ValueError): session.simulate(changed,{})
+                self.assertEqual(session.dump(),before)
+            for raw in (b'reconcile',b'suppress',b'delete'):
+                self.assertEqual(session.intake(raw),'DUPLICATE_NO_EFFECT')
+                self.assertEqual(session.dump(),before)
+            for scenario in ('success','TIMEOUT_AFTER_SUBMIT','AMBIGUOUS_RESPONSE','invalid'):
+                for denied in (False,True):
+                    r=req('cp146.dns.change',event='synthetic-excess')
+                    if denied: r['destination']=requests[2]['destination']
+                    e=evidence(r)
+                    e['restore_replay']={'epoch':'synthetic-restore','completed':True,'evidence_ref':'synthetic-replay'}
+                    with self.subTest(restored=session.restored,scenario=scenario,denied=denied):
+                        with self.assertRaises(ValueError): session.simulate(r,e,scenario=scenario)
+                        self.assertEqual(session.dump(),before)
+            malformed=req(); malformed['payload_ref']='../../invalid'
+            with self.assertRaises(ValueError): session.simulate(malformed,{})
+            self.assertEqual(session.dump(),before)
+
+    def test_every_emitted_capacity_state_is_restorable(self):
+        m=self.make()
+        for i in range(1001):
+            r=req('cp146.dns.change',event='synthetic-boundary-'+str(i))
+            if i<1000:
+                m.simulate(r,evidence(r))
+            else:
+                before=m.dump()
+                # Old code emits 1001 actions here; restore below rejects its own dump.
+                try: m.simulate(r,evidence(r))
+                except ValueError: self.assertEqual(m.dump(),before)
+        serialized=m.dump()
+        self.assertEqual(Mock.restore(serialized,CONFIG,verifier=m.verifier).dump(),serialized)
+        self.assertEqual(len(m.actions),1000)

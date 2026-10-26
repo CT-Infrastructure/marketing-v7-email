@@ -94,7 +94,8 @@ select real UID/GID/network/credentials and database/cache facts, and perform li
 installation/restore qualification in a separately authorized test scope. These
 are HOLD/UNKNOWN, not missing facts to guess. The controller must supply lease
 transport metadata and accepted input hash and obtain independent reviewer,
-exact-head CI/Copilot clearance and merge receipts. No G02, acceptance ID, provider
+exact-head CI, actual GitHub Codex review requested with @codex review, and merge receipts.
+Clearance requires an exact-head full explicit favorable assessment (APPROVED preferred, or an authorized unambiguous COMMENTED assessment with no findings or contradictions). CI and native CODEOWNER, approval, last-push, discussion, base-compatibility and merge-eligibility gates remain unchanged. A reaction, header or "No open" alone is not clearance. Any new commit invalidates review. Historical Copilot receipts and original criteria remain unchanged. No G02, acceptance ID, provider
 qualification, code acceptance or production approval is claimed here.
 
 
@@ -120,3 +121,20 @@ state or replay IDs change. dump/restore is not a durable or authenticated ledge
 The accepted F04 transition function is exercised verbatim via its AST using the
 local schema validator and F16 UTC parser. Full F04 jsonschema execution remains
 NOT_RUN (third-party dependency unavailable; no installation authorized).
+
+
+## Session admission capacity
+
+A session admits at most 1,000 distinct action keys, matching the restore bound.
+After request validation, existing keys reuse their latest receipt or reject a
+changed payload before the capacity check. An excess new key raises ValueError
+before eligibility or simulation and leaves the entire serialized state unchanged,
+including UNKNOWN reservations, receipt history, callback replay IDs and denial
+tombstones. No key is evicted or recycled; restore validation is unchanged.
+Capacity applies equally to successful, denied and ambiguous/timeout requests.
+The controller must retain the full session and arrange any separately reviewed
+lifecycle policy; capacity exhaustion never authorizes retry or resubmission.
+
+The capacity correction adds two regression tests to the existing corrections
+file (36 total planned). Historical 34-test evidence above is unchanged; current
+normal/optimized execution and old-code red comparison require root admission.
