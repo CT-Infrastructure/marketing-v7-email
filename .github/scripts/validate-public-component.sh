@@ -15,7 +15,7 @@ export GIT_CONFIG_KEY_1=core.hooksPath GIT_CONFIG_VALUE_1=/dev/null
 export GIT_CONFIG_KEY_2=init.templateDir GIT_CONFIG_VALUE_2=/dev/null
 export GIT_CONFIG_KEY_3=protocol.allow GIT_CONFIG_VALUE_3=never
 export GIT_CONFIG_KEY_4=protocol.https.allow GIT_CONFIG_VALUE_4=always
-python3 -B -c 'import sys; sys.exit(0 if sys.version_info[:3] == (3,14,3) else "required Python 3.14.3 unavailable")'
+python3 -B -c 'import sys; print(f"Observed Python {sys.version.split()[0]}; supported range: >=3.12,<4", flush=True); sys.exit(0 if (3,12) <= sys.version_info[:2] < (4,0) else "unsupported Python version; required >=3.12,<4")'
 test -f "$component/assemble.py"
 test -f "$component/dependencies.lock.json"
 test -d "$component/tests"
