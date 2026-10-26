@@ -1,0 +1,66 @@
+{
+  "component": "CP146",
+  "version": "1.0.0",
+  "classification": "EXTERNAL_WHEN_CHANNEL_ENABLED",
+  "deployment_decision": "external-contract-and-mock",
+  "source": "local original MIT code; supplied read-only contracts",
+  "contract": "contract.v1.json",
+  "contract_sha256": "466b1399bd3cc18cc897ac0b55ecc4ba248b97f869bcad7140a6f3b86bea1106",
+  "provider": {
+    "name": "UNSELECTED: human provider/security owner must qualify",
+    "version": "UNSELECTED: human provider/security owner must qualify",
+    "edition": "UNSELECTED: human provider/security owner must qualify",
+    "account": "UNSELECTED: human provider/security owner must qualify",
+    "region": "UNSELECTED: human provider/security owner must qualify",
+    "capabilities": "UNSELECTED: human provider/security owner must qualify",
+    "digest": "UNSELECTED: human provider/security owner must qualify"
+  },
+  "runtime": {
+    "python": "3.14.3 (tags/v3.14.3:323c59a, Feb  3 2026, 16:04:56) [MSC v.1944 64 bit (AMD64)]",
+    "third_party_dependencies": [],
+    "architecture": "portable stdlib Python; tested interpreter only"
+  },
+  "processes": {
+    "persistent": [],
+    "transient": [
+      "bounded unittest process only"
+    ]
+  },
+  "native_database": "NOT_APPLICABLE: mock serializes in memory; actual provider UNKNOWN",
+  "native_cache": "NOT_APPLICABLE: no cache; actual provider UNKNOWN",
+  "uid_gid": "UNKNOWN: real provider/service not selected; no service identity provisioned",
+  "network": {
+    "ingress": "NONE",
+    "egress": "NONE",
+    "live_transport": "ABSENT"
+  },
+  "volumes": {
+    "production": [],
+    "synthetic_state": "caller-owned serialization string; no automatic file reads/writes"
+  },
+  "secret_references": [],
+  "health": {
+    "startup": "strict HOLD config validation",
+    "readiness": "offline tests only; never provider ready",
+    "liveness": "bounded process exit"
+  },
+  "migration": "no automatic migration; reject unsupported serialization version",
+  "backup": "Mock.dump returns synthetic JSON; caller retains in approved output only",
+  "restore": "Mock.restore validates state; reapply current F16 lifecycle and authenticated intake; replay evidence required before new simulation",
+  "rollback": "restore previous reviewed source plus validated synthetic snapshot in isolation; never undo external effects",
+  "resources": {
+    "cpu": 1,
+    "memory_mib": 1536,
+    "gpu": 0,
+    "integration": 0,
+    "slots": 1,
+    "disk": "UNKNOWN host enforcement; fixture state limited to 1000 entries on restore",
+    "enforcement": "controller responsibility; not verified by mock"
+  },
+  "logs": "no raw input logging; fixed errors only",
+  "license": "MIT original code/docs only; Python and upstream dependencies retain licenses",
+  "sbom": "inventory.json",
+  "vulnerabilities": "NOT_RUN: no scanner installed/invoked; Python patch currency and provider vulnerabilities UNKNOWN",
+  "outbound_state": "HOLD",
+  "production_qualification": "BLOCKED"
+}
