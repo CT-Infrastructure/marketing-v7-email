@@ -19,3 +19,16 @@ jobs:
           persist-credentials: false
       - name: Validate package and build DAG
         run: python3 tools/validate_scope.py
+  public-component:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      # Use installed runner Python; the script requires >=3.12,<4.
+      - name: Validate public assembly and component (partial F04 coverage)
+        shell: bash
+        run: bash .github/scripts/validate-public-component.sh cp146

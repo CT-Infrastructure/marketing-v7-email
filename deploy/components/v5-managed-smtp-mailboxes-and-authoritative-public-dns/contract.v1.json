@@ -1,0 +1,36 @@
+{
+  "revision": "1.0.0",
+  "kind": "offline-external-contract",
+  "smtp_actions": {
+    "owner": "F05 providers",
+    "names": [
+      "transport.submit",
+      "receipt.read",
+      "transport.cancel"
+    ]
+  },
+  "local_extensions": {
+    "owner": "CP146 synthetic fixtures only",
+    "names": [
+      "cp146.mailbox.admin",
+      "cp146.mailbox.reply",
+      "cp146.dns.change"
+    ]
+  },
+  "recipient_authority": "Mautic via F16",
+  "intake_authority": "explicit SyntheticVerifier byte fixtures; never production",
+  "retry_budget": 0,
+  "outbound_state": "HOLD",
+  "real_transport": "ABSENT",
+  "receipt_semantics": "F04 CONFIRMED can describe historical synthetic occurrence only; Mock outbound_state remains HOLD",
+  "payload_refs": "synthetic opaque refs only, never fetched",
+  "simulation_clock": {
+    "origin_utc": "2026-10-25T11:58:20Z",
+    "unit": "nonnegative integer seconds",
+    "default_now": 100,
+    "authority": "trusted synthetic harness; replaces privacy_request.now before F16 evaluation"
+  },
+  "receipt_history": "append-only snapshots; deterministic sha256(action_key:zero-based-sequence) IDs; latest receipt equals final history entry; UNKNOWN -> RECONCILED only",
+  "restore_profile": "requires history; legacy snapshots without history rejected, not silently migrated",
+  "freshness_policy": "F16 max_age_seconds remains reviewed caller policy, no CP146 legal maximum"
+}

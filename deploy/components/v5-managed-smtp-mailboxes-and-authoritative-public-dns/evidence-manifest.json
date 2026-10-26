@@ -1,0 +1,90 @@
+{
+  "kind": "CP146_OFFLINE_ONLY",
+  "tested_base_revision": "c4e61301fcd992a217b0b925286385c9af2ea611",
+  "candidate_revision": "NO_GIT: files identified by output candidate-manifest.json SHA256",
+  "interpreter": "3.14.3 (tags/v3.14.3:323c59a, Feb  3 2026, 16:04:56) [MSC v.1944 64 bit (AMD64)]",
+  "tests": {
+    "normal": {
+      "count": 34,
+      "exit_code": 0,
+      "original_tests": 26,
+      "new_regressions": 8
+    },
+    "optimized": {
+      "count": 34,
+      "exit_code": 0,
+      "original_tests": 26,
+      "new_regressions": 8
+    }
+  },
+  "worker_criteria": {
+    "1": "test_permission_negatives, test_lifecycle_and_reviews, test_approval_negatives",
+    "2": "test_identity_and_payload_denials_redacted, test_success_and_dedupe",
+    "3": "test_errors_and_unknown_reservation; no retry budget",
+    "4": "test_reconciliation; mock verifier exact-byte proof only",
+    "5": "test_bad_callbacks, test_intake_suppression_without_consent_and_replay, test_revocation_delete_reapply_and_object_binding",
+    "6": "test_restore_holds_and_corruption, lifecycle and denial restore tests",
+    "7": "test_config_denials, test_identity_and_payload_denials_redacted, test_no_network_or_process_imports",
+    "8": "fixed redacted exceptions, no logging; config/payload secret fixtures tested"
+  },
+  "acceptance": {
+    "upstream_compatibility": "BLOCKED provider selection",
+    "disposable_install": "BLOCKED external provider; offline import tested only",
+    "negative_security": "OFFLINE_TESTED only",
+    "restore": "OFFLINE_TESTED; real restore BLOCKED",
+    "quadlet": "NOT_APPLICABLE external contract, zero services",
+    "independent_review": "BLOCKED controller assignment"
+  },
+  "real_acceptance_ids": "NOT_RUN",
+  "CI": "NOT_RUN",
+  "Copilot": "NOT_RUN",
+  "G02": "HOLD",
+  "provider_qualification": "HOLD",
+  "vulnerability_scan": "NOT_RUN",
+  "limitations": [
+    "Lease/fence/input credentials intentionally absent; root privately binds result transport. No authority fabricated or sought.",
+    "Canonical public blob SHA256 verified against dependencies.lock.json using injected fixture transport; actual Git adapter NOT_RUN.",
+    "Full F04 validator NOT_RUN: jsonschema unavailable; exact pure transition function executed with local schema checks.",
+    "Independent review, exact-head CI, merge and provider/G02 qualification remain required; no prior BLOCKED result promoted.",
+    "Single-caller synthetic serialization only; no live installation, concurrency/durability or actual provider compatibility proof."
+  ],
+  "findings": {
+    "R1": "common explicit UTC simulation time replaces untrusted privacy clock",
+    "R2": "restore validates initial disposition and full history semantics",
+    "R3": "immutable chronological history, deterministic distinct receipt IDs",
+    "R4": "parsed UTC datetimes replace lexical chronology",
+    "R5": "caller receipt identities deep copied; original regression preserved",
+    "R6": "invalid intake clocks rejected atomically; original regression preserved"
+  },
+  "assembly_evidence": {
+    "original_tests": 26,
+    "new_tests": 8,
+    "transport": "injected fixture bytes only; actual Git adapter NOT_RUN",
+    "review": "fresh independent review required",
+    "link_tests": "injected metadata only; sandbox denies real link creation"
+  },
+  "historical_independent_probes": {
+    "normal": {
+      "count": 10,
+      "passed": 9,
+      "failed": 1,
+      "exit_code": 1,
+      "valid_finding_and_control_probes": "8/8 pass",
+      "observations": {
+        "non_synthetic_metadata": "denied; pass",
+        "unbounded_privacy_age": "expected-denial assertion fails; caller-reviewed F16 policy"
+      }
+    },
+    "optimized": {
+      "count": 10,
+      "passed": 9,
+      "failed": 1,
+      "exit_code": 1,
+      "valid_finding_and_control_probes": "8/8 pass",
+      "observations": {
+        "non_synthetic_metadata": "denied; pass",
+        "unbounded_privacy_age": "expected-denial assertion fails; caller-reviewed F16 policy"
+      }
+    }
+  }
+}
